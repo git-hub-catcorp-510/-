@@ -1,0 +1,2571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="小猫科技100款产品介绍：操作系统、人工智能、社交通讯、云端服务、应用开发、内容文档、生活探索与成长门户。">
+  <title>小猫科技 · 产品介绍</title>
+  <script>
+    /* 不兼容浏览器提示须保持 ES5，确保 IE 也能显示提示本身。 */
+    (function () {
+      var ua = window.navigator.userAgent || "";
+      var browserName = "";
+      if (/MSIE|Trident/i.test(ua) || document.documentMode) browserName = "Internet Explorer";
+      else if (/Firefox\/|FxiOS\//i.test(ua)) browserName = "Firefox";
+      else if (/Version\/.*Safari\//i.test(ua) && !/(Chrome|Chromium|CriOS|Edg|EdgiOS|OPR|Opera|Android)/i.test(ua)) browserName = "Safari";
+      window.unsupportedBrowserName = browserName;
+      if (browserName) document.documentElement.className += " unsupported-browser";
+    }());
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230078d4'/%3E%3Cpath d='M8 13V6l5 4c2-1 4-1 6 0l5-4v7c2 5 1 12-8 12S6 18 8 13Z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body { min-width: 320px; background: #f3f3f3; color: #201f1f; font-family: "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    header, footer, nav, main, section, aside, article { display: block; }
+    * { box-sizing: border-box; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    svg { display: inline-block; vertical-align: middle; }
+    [hidden] { display: none !important; }
+    :focus { outline: 2px solid #0078d4; outline-offset: 3px; }
+    .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; stroke-linejoin: miter; vertical-align: middle; }
+    .icon-sm { width: 16px; height: 16px; }
+    .icon-lg { width: 30px; height: 30px; }
+    .clearfix:after, .topbar:after, .workspace-bar:after, .mini-tiles:after { content: ""; display: table; clear: both; }
+
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 40; width: 248px; background: #201f1f; color: #f4f4f4; overflow-y: auto; }
+    .main-shell { min-width: 0; margin-left: 248px; }
+    .brand-row { position: relative; min-height: 72px; padding: 14px; }
+    .brand { display: block; min-height: 40px; margin-right: 38px; }
+    .brand-mark { display: block; float: left; width: 38px; height: 38px; background: #0078d4; color: #fff; text-align: center; }
+    .brand-mark svg { width: 26px; height: 26px; margin-top: 6px; }
+    .brand-text { display: block; margin-left: 49px; padding-top: 2px; }
+    .brand-name { display: block; font-size: 16px; font-weight: 600; line-height: 1.25; white-space: nowrap; }
+    .brand-subtitle { display: block; margin-top: 3px; color: #a9a9a9; font-size: 11px; line-height: 1.25; white-space: nowrap; }
+    .icon-button { display: inline-block; width: 38px; height: 38px; padding: 8px; background: transparent; border: 1px solid transparent; cursor: pointer; text-align: center; vertical-align: middle; }
+    #navToggle { position: absolute; right: 10px; top: 17px; }
+    .sidebar .icon-button { color: #fff; }
+    .icon-button:hover { background: #e5e5e5; border-color: #d2d2d2; }
+    .sidebar .icon-button:hover { background: #3b3b3b; border-color: #555; }
+    .nav-list { clear: both; padding: 10px; }
+    .nav-link { display: block; min-height: 46px; padding: 12px 13px; color: #c8c8c8; white-space: nowrap; }
+    .nav-link:hover { background: #3b3b3b; color: #fff; }
+    .nav-link.active { background: #0078d4; color: #fff; }
+    .nav-label { display: inline-block; margin-left: 14px; overflow: hidden; vertical-align: middle; }
+    .nav-badge { float: right; min-width: 24px; margin-top: 1px; padding: 0 6px; background: #454545; color: #fff; font-size: 11px; text-align: center; }
+    .nav-link.active .nav-badge { background: #3b95d9; }
+    .sidebar-note { margin-top: 40px; padding: 20px 24px 24px; border-top: 1px solid #454545; white-space: nowrap; overflow: hidden; }
+    .sidebar-note strong { display: block; font-size: 14px; font-weight: 500; }
+    .sidebar-note span { color: #a9a9a9; font-size: 12px; }
+    .nav-scrim { display: none; }
+    body.nav-collapsed .sidebar { width: 72px; }
+    body.nav-collapsed .main-shell { margin-left: 72px; }
+    body.nav-collapsed .brand-row { height: 112px; padding: 14px 16px; }
+    body.nav-collapsed .brand { margin: 0; }
+    body.nav-collapsed .brand-mark { float: none; width: 32px; height: 32px; }
+    body.nav-collapsed .brand-mark svg { margin-top: 3px; }
+    body.nav-collapsed #navToggle { left: 13px; right: auto; top: 62px; }
+    body.nav-collapsed .brand-text, body.nav-collapsed .nav-label, body.nav-collapsed .nav-badge, body.nav-collapsed .sidebar-note { display: none; }
+    body.nav-collapsed .nav-link { padding-left: 0; padding-right: 0; text-align: center; }
+
+    .topbar { position: relative; z-index: 30; min-height: 64px; padding: 10px 32px; background: #fff; border-bottom: 1px solid #d2d2d2; }
+    .mobile-nav-toggle { display: none; }
+    .desktop-back { margin-right: 10px; }
+    .page-identity { display: inline-block; max-width: 65%; vertical-align: middle; }
+    .page-eyebrow { color: #737373; font-size: 11px; line-height: 1.25; }
+    .page-title { margin: 2px 0 0; font-size: 17px; font-weight: 500; line-height: 1.35; }
+    .command-bar { float: right; margin-top: 4px; }
+    .command-button { display: inline-block; min-height: 38px; padding: 8px 11px; background: transparent; border: 1px solid transparent; cursor: pointer; vertical-align: middle; }
+    .command-button:hover { background: #e5e5e5; border-color: #d2d2d2; }
+    .command-button span { margin-left: 7px; font-size: 13px; }
+
+    main { width: 100%; max-width: 1500px; margin: 0 auto; padding: 32px 36px 56px; }
+    .section-heading { max-width: 760px; margin-bottom: 24px; }
+    .section-heading h2 { margin: 0 0 8px; font-size: 38px; font-weight: 300; line-height: 1.25; letter-spacing: -.02em; }
+    .section-heading p { margin: 0; color: #5d5d5d; font-size: 16px; }
+    .section-kicker { margin: 0 0 8px; color: #005a9e; font-size: 13px; font-weight: 600; }
+    .text-link { display: inline-block; color: #005a9e; font-weight: 600; cursor: pointer; }
+    .text-link .icon { margin-left: 6px; }
+    .text-link:hover { text-decoration: underline; }
+    .button { display: inline-block; min-height: 42px; padding: 9px 18px; background: #fff; border: 2px solid #5d5d5d; color: #201f1f; font-weight: 600; line-height: 1.35; cursor: pointer; text-align: center; vertical-align: middle; }
+    .button .icon { margin-left: 7px; }
+    .button:hover { background: #e5e5e5; }
+    .button-primary { background: #0078d4; border-color: #0078d4; color: #fff; }
+    .button-primary:hover { background: #006cbe; border-color: #006cbe; }
+    .button[aria-pressed="true"] { background: #deecf9; border-color: #0078d4; color: #005a9e; }
+    .button-row { margin: -5px; }
+    .button-row .button { margin: 5px; }
+
+    .hero { display: flex; min-height: 520px; background: #0078d4; color: #fff; }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; width: 50%; min-height: 520px; padding: 60px; }
+    .hero-copy .section-kicker { color: #fff; }
+    .hero-copy h2 { max-width: 650px; margin: 12px 0 22px; font-size: 58px; font-weight: 300; line-height: 1.14; letter-spacing: -.045em; }
+    .hero-copy > p:not(.section-kicker) { max-width: 560px; margin: 0 0 30px; color: #e5f2fb; font-size: 17px; line-height: 1.8; }
+    .hero .button { background: transparent; border-color: #fff; color: #fff; }
+    .hero .button:hover { background: #2589d4; }
+    .hero .button-primary { background: #fff; color: #0078d4; }
+    .hero .button-primary:hover { background: #e5f2fb; border-color: #fff; }
+    .hero-visual { display: flex; align-items: center; justify-content: center; width: 50%; min-height: 520px; padding: 40px; background: #00a4ef; }
+    .workspace { width: 100%; max-width: 530px; margin: 0 auto; background: #fff; color: #201f1f; border: 6px solid #66c5f2; }
+    .workspace-bar { height: 44px; padding: 9px 14px; border-bottom: 1px solid #d2d2d2; font-size: 12px; font-weight: 600; }
+    .workspace-bar .brand-mark { width: 24px; height: 24px; margin-right: 9px; }
+    .workspace-bar .brand-mark svg { width: 17px; height: 17px; margin-top: 3px; }
+    .workspace-bar > span:last-child { float: right; color: #737373; font-weight: 400; line-height: 24px; }
+    .workspace-body { position: relative; min-height: 340px; }
+    .workspace-rail { position: absolute; left: 0; top: 0; bottom: 0; width: 88px; padding: 18px 10px; background: #201f1f; }
+    .rail-block { height: 30px; margin: 0 6px 10px; background: #4a4a4a; }
+    .rail-block.active { background: #0078d4; }
+    .workspace-main { min-height: 340px; margin-left: 88px; padding: 26px 22px; }
+    .workspace-main small { color: #737373; }
+    .workspace-main h3 { margin: 5px 0 20px; font-size: 23px; font-weight: 300; line-height: 1.35; }
+    .mini-tile { float: left; width: 49%; min-height: 98px; margin: 0 2% 8px 0; padding: 14px; background: #008272; color: #fff; }
+    .mini-tile:first-child { min-height: 204px; background: #0078d4; }
+    .mini-tile:nth-child(2) { background: #d83b01; }
+    .mini-tile:nth-child(3) { background: #107c10; }
+    .mini-tile strong { display: block; margin: 7px 0 4px; font-size: 14px; font-weight: 500; }
+    .mini-tile span { color: #e8f4ef; font-size: 11px; }
+    .mini-tile .icon { margin-bottom: 16px; }
+    .workspace-status { clear: both; padding-top: 12px; color: #5d5d5d; font-size: 11px; }
+    .status-square { display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: #107c10; }
+
+    .value-strip { display: flex; margin: 20px 0 64px; background: #fff; }
+    .value-item { width: 33.333%; padding: 24px; border-top: 5px solid #0078d4; }
+    .value-item:nth-child(2) { border-top-color: #008272; }
+    .value-item:nth-child(3) { border-top-color: #d83b01; }
+    .value-item + .value-item { border-left: 1px solid #d2d2d2; }
+    .value-item .icon { float: left; margin: 4px 14px 30px 0; color: #005a9e; }
+    .value-item strong { display: block; margin-bottom: 3px; font-weight: 600; }
+    .value-item span { display: block; overflow: hidden; color: #5d5d5d; font-size: 13px; }
+
+    .home-section { margin-top: 64px; }
+    .product-grid { display: flex; flex-wrap: wrap; margin: -6px; }
+    .product-card { position: relative; display: flex; flex-direction: column; width: calc(33.333333% - 12px); min-width: 0; min-height: 330px; margin: 6px; padding: 26px; background: #0078d4; color: #fff; border: 2px solid transparent; }
+    .product-card-wide { width: calc(66.666666% - 12px); }
+    .product-card:hover { border-color: #fff; }
+    .product-icon { display: block; width: 52px; height: 52px; margin-bottom: 28px; background: #3b95d9; color: #fff; text-align: center; }
+    .product-icon .icon { margin-top: 11px; }
+    .product-category { color: #e5f2fb; font-size: 12px; }
+    .product-card h3 { margin: 5px 0 3px; font-size: 27px; font-weight: 300; line-height: 1.3; }
+    .product-en { color: #e5f2fb; font-size: 13px; }
+    .product-card > p { max-width: 600px; margin: 16px 0 20px; color: #f3f8fc; }
+    .product-actions { margin-top: auto; padding-top: 20px; }
+    .product-card .text-link { margin-right: 12px; color: #fff; }
+    .product-card .button { min-height: 36px; margin: 3px 3px 3px 0; padding: 7px 12px; background: transparent; border: 1px solid #fff; color: #fff; font-size: 13px; }
+    .product-card .button:hover, .product-card .button[aria-pressed="true"] { background: #5ba8df; border-color: #fff; color: #fff; }
+    .product-card .button-primary { background: #fff; color: #252525; border-color: #fff; }
+    .product-card .button-primary:hover { background: #e8e8e8; color: #252525; }
+    .product-icon, .product-category, .product-en { background-color: transparent; }
+    .product-icon { background-color: rgba(255,255,255,.17); }
+    .filter-bar { margin-bottom: 20px; padding: 8px; background: #fff; }
+    .product-search { display: inline-block; width: 230px; min-height: 38px; margin: 2px 8px 2px 0; padding: 7px 10px; background: #fff; border: 2px solid #767676; color: #201f1f; vertical-align: middle; }
+    .product-search:focus { border-color: #0078d4; }
+    body.dark .product-search { background: #1b1b1b; border-color: #aaa; color: #f4f4f4; }
+    .filter-button { display: inline-block; min-height: 38px; margin: 2px; padding: 7px 15px; background: transparent; border: 2px solid transparent; cursor: pointer; }
+    .filter-button:hover { background: #e5e5e5; }
+    .filter-button.active { background: #0078d4; border-color: #0078d4; color: #fff; }
+    .filter-count { float: right; padding: 10px 9px 0 0; color: #737373; font-size: 12px; }
+    .product-grid.is-filtered .product-card { width: calc(50% - 12px); }
+
+    .workflow { display: flex; background: #fff; }
+    .workflow-step { width: 33.333%; padding: 28px; border-top: 5px solid #0078d4; }
+    .workflow-step:nth-child(2) { border-top-color: #008272; }
+    .workflow-step:nth-child(3) { border-top-color: #d83b01; }
+    .workflow-step + .workflow-step { border-left: 1px solid #d2d2d2; }
+    .workflow-number { color: #005a9e; font-size: 14px; font-weight: 600; }
+    .workflow-step h3 { margin: 12px 0 7px; font-size: 21px; font-weight: 400; }
+    .workflow-step p { margin: 0; color: #5d5d5d; font-size: 14px; }
+    .closing-panel { display: flex; align-items: center; justify-content: space-between; margin-top: 64px; padding: 32px 34px; background: #008272; color: #fff; }
+    .closing-panel h2 { margin: 0 0 5px; font-size: 28px; font-weight: 300; }
+    .closing-panel p { margin: 0; color: #e1f2ed; }
+    .closing-panel .button { margin-left: 30px; background: #fff; border-color: #fff; color: #006155; }
+
+    .detail-hero { display: flex; align-items: flex-end; padding: 40px; background: #0078d4; color: #fff; }
+    .detail-hero-main { flex: 1; min-width: 0; }
+    .detail-title-row .product-icon { float: left; width: 64px; height: 64px; margin: 0 18px 0 0; }
+    .detail-title-text { overflow: hidden; }
+    .detail-hero h1 { margin: 0; font-size: 52px; font-weight: 300; line-height: 1.2; }
+    .detail-en { margin: 4px 0 0; color: #e5f2fb; }
+    .detail-tagline { clear: both; max-width: 740px; margin: 26px 0 8px; font-size: 23px; font-weight: 300; line-height: 1.5; }
+    .detail-description { max-width: 780px; margin: 0; color: #f3f8fc; }
+    .detail-actions { width: 160px; margin-left: 30px; flex: none; }
+    .detail-actions .button { width: 100%; margin-top: 9px; }
+    .detail-hero .button { background: transparent; border-color: #fff; color: #fff; }
+    .detail-hero .button:hover, .detail-hero .button[aria-pressed="true"] { background: #5ba8df; border-color: #fff; color: #fff; }
+    .detail-hero .button-primary { background: #fff; color: #252525; }
+    .detail-hero .button-primary:hover { background: #e8e8e8; color: #252525; }
+    .detail-grid { display: flex; margin: 16px -8px 0; }
+    .detail-main, .detail-aside { margin: 0 8px; padding: 30px; background: #fff; border-top: 5px solid #0078d4; }
+    .detail-main { width: calc(64% - 16px); }
+    .detail-aside { width: calc(36% - 16px); }
+    .detail-main h2, .detail-aside h2 { margin: 0 0 20px; font-size: 25px; font-weight: 300; }
+    .feature-item { position: relative; padding: 20px 0 20px 52px; border-top: 1px solid #d2d2d2; }
+    .feature-item:first-child { padding-top: 0; border-top: 0; }
+    .feature-index { position: absolute; left: 0; top: 22px; color: #005a9e; font-size: 14px; font-weight: 600; }
+    .feature-item:first-child .feature-index { top: 2px; }
+    .feature-item h3 { margin: 0 0 5px; font-size: 18px; font-weight: 500; }
+    .feature-item p { margin: 0; color: #5d5d5d; }
+    .scenario-list { margin: 0 0 28px; padding: 0; list-style: none; }
+    .scenario-list li { margin-bottom: 13px; color: #5d5d5d; }
+    .scenario-list .icon { margin-right: 9px; color: #005a9e; }
+    .info-block { padding: 20px 0; border-top: 1px solid #d2d2d2; }
+    .info-block h3 { margin: 0 0 5px; font-size: 14px; font-weight: 600; }
+    .info-block p { margin: 0; color: #5d5d5d; font-size: 14px; }
+
+    .compare-picker { margin-bottom: 18px; padding: 18px; background: #fff; border-top: 5px solid #0078d4; }
+    .compare-toolbar { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 14px; }
+    .compare-add-label { display: block; color: #5d5d5d; font-size: 13px; font-weight: 600; }
+    .compare-add-select { display: block; min-width: 290px; min-height: 42px; margin-top: 6px; padding: 8px 12px; background: #fff; border: 2px solid #767676; color: #201f1f; font: inherit; }
+    .compare-hint { color: #737373; font-size: 12px; text-align: right; }
+    .compare-selected { display: flex; flex-wrap: wrap; margin: -4px; }
+    .compare-option { display: inline-block; margin: 4px; padding: 8px 10px 8px 14px; background: #fff; border: 2px solid transparent; border-left: 6px solid #0078d4; }
+    .compare-option.selected { background: #deecf9; }
+    .compare-remove { min-height: 28px; margin-left: 12px; padding: 3px 8px; background: transparent; border: 1px solid #767676; color: inherit; cursor: pointer; font-size: 12px; }
+    .compare-remove:hover { background: #0078d4; border-color: #0078d4; color: #fff; }
+    .compare-table-wrap { overflow-x: auto; background: #fff; }
+    .home-load-more { margin-top: 22px; padding: 20px; background: #fff; border-left: 5px solid #0078d4; text-align: center; }
+    .home-load-status { display: block; margin-top: 10px; color: #737373; font-size: 13px; }
+    .compare-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+    .compare-table th, .compare-table td { padding: 20px; border-bottom: 1px solid #d2d2d2; text-align: left; vertical-align: top; word-wrap: break-word; }
+    .compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: 0; }
+    .compare-table thead th { background: #fafafa; }
+    .compare-table thead th:not(:first-child) { font-size: 17px; font-weight: 500; }
+    .compare-table tbody th { width: 18%; color: #5d5d5d; font-size: 13px; font-weight: 600; }
+    .compare-table td + td, .compare-table th + th { border-left: 1px solid #d2d2d2; }
+    .empty-state { padding: 54px 28px; background: #fff; border-top: 5px solid #0078d4; text-align: center; }
+    .empty-state .icon { margin-bottom: 16px; color: #737373; }
+    .empty-state h3 { margin: 0 0 6px; font-weight: 500; }
+    .empty-state p { margin: 0 0 20px; color: #5d5d5d; }
+
+    .about-intro { display: flex; background: #fff; }
+    .about-copy { width: 62%; padding: 58px; }
+    .about-copy h2 { margin: 0 0 20px; font-size: 50px; font-weight: 300; line-height: 1.2; letter-spacing: -.03em; }
+    .about-copy p { max-width: 700px; margin: 0; color: #5d5d5d; font-size: 16px; }
+    .about-copy .section-kicker { color: #005a9e; }
+    .about-statement { display: flex; align-items: flex-end; width: 38%; padding: 38px; background: #008272; color: #fff; }
+    .about-statement blockquote { margin: 0; font-size: 30px; font-weight: 300; line-height: 1.5; }
+    .principles { display: flex; margin: -6px; }
+    .principle { width: calc(33.333333% - 12px); margin: 6px; padding: 28px; background: #fff; border-top: 5px solid #0078d4; }
+    .principle:nth-child(2) { border-top-color: #008272; }
+    .principle:nth-child(3) { border-top-color: #d83b01; }
+    .principle .icon { margin-bottom: 24px; color: #005a9e; }
+    .principle h3 { margin: 0 0 8px; font-size: 21px; font-weight: 400; }
+    .principle p { margin: 0; color: #5d5d5d; }
+    .demo-note { margin-top: 30px; padding: 18px 20px; background: #fff; border-left: 5px solid #0078d4; color: #5d5d5d; font-size: 13px; }
+
+    /* ===== Metro 动效与不兼容提示 ===== */
+    .app-shell { position: relative; z-index: 1; }
+    .metro-backdrop { position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .ambient-tile { position: absolute; display: block; width: 170px; height: 170px; background: #0078d4; opacity: .045; animation: metroAmbient 16s ease-in-out infinite alternate; }
+    .ambient-two { width: 92px; height: 92px; background: #008272; animation-name: metroAmbientReverse; animation-duration: 12s; }
+    .ambient-three { width: 58px; height: 58px; background: #d83b01; animation-duration: 10s; }
+    .ambient-four { width: 120px; height: 120px; background: #00a4ef; animation-name: metroAmbientReverse; animation-duration: 19s; }
+    .ambient-one { right: -45px; top: 14%; }
+    .ambient-two { left: 270px; bottom: 7%; }
+    .ambient-three { right: 16%; bottom: 9%; }
+    .ambient-four { right: 30%; top: -62px; }
+    body.dark .ambient-tile { opacity: .085; }
+    .route-progress { position: fixed; left: 0; top: 0; z-index: 90; width: 0; height: 4px; background: #00a4ef; opacity: 0; pointer-events: none; }
+    .route-progress.go { animation: metroProgress .7s cubic-bezier(.1,.9,.2,1) both; }
+    .view.metro-view-enter { animation: metroView .48s cubic-bezier(.16,1,.3,1) both; transform-origin: left top; }
+    .metro-cascade { animation: metroTileIn .62s cubic-bezier(.16,1,.3,1) both; transform-origin: center; }
+    .metro-cascade-reverse { animation-name: metroTileAlt; }
+    .metro-reveal { opacity: 0; transform: translateY(38px); }
+    .metro-reveal.metro-revealed { animation: metroReveal .68s cubic-bezier(.16,1,.3,1) forwards; }
+    .page-title.metro-title-change { animation: metroTitle .38s cubic-bezier(.16,1,.3,1) both; }
+
+    .brand-mark, .nav-link, .nav-link .icon, .button, .command-button, .icon-button, .filter-button, .compare-option, .value-item, .workflow-step, .principle, .workspace, .mini-tile, .feature-item { transition: transform .28s cubic-bezier(.2,.8,.2,1), background-color .22s ease, border-color .22s ease, box-shadow .28s ease; }
+    .brand:hover .brand-mark { transform: rotateY(180deg); }
+    .nav-link { position: relative; overflow: hidden; }
+    .nav-link:before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #4cc2ff; transform: scaleY(0); transform-origin: center; transition: transform .28s ease; }
+    .nav-link:hover { transform: translateX(6px); }
+    .nav-link:hover:before, .nav-link.active:before { transform: scaleY(1); }
+    .nav-link.active .icon { animation: metroNavFlip .5s cubic-bezier(.16,1,.3,1); }
+    .button, .command-button, .icon-button, .filter-button { position: relative; overflow: hidden; }
+    .button:hover, .command-button:hover, .icon-button:hover { transform: translateY(-2px); }
+    .button:active, .command-button:active, .icon-button:active, .filter-button:active { transform: scale(.96); }
+    .button .icon, .text-link .icon { transition: transform .25s ease; }
+    .button:hover .icon, .text-link:hover .icon { transform: translateX(5px); }
+    .filter-button.active, .compare-option.selected { animation: metroPop .34s cubic-bezier(.2,.9,.3,1.35); }
+    #themeToggle .icon { transition: transform .55s cubic-bezier(.16,1,.3,1); }
+    #themeToggle:hover .icon { transform: rotate(160deg); }
+
+    .workspace { transform-style: preserve-3d; }
+    .workspace:hover { transform: perspective(1000px) rotateY(-3deg) rotateX(2deg) translateY(-5px); box-shadow: 18px 22px 0 rgba(0,0,0,.12); }
+    .rail-block { animation: metroRailPulse 4.8s ease-in-out infinite; }
+    .rail-block:nth-child(2) { animation-delay: .6s; }
+    .rail-block:nth-child(3) { animation-delay: 1.2s; }
+    .rail-block:nth-child(4) { animation-delay: 1.8s; }
+    .mini-tile .icon { animation: metroIconBob 4.2s ease-in-out infinite; }
+    .mini-tile:nth-child(2) .icon { animation-delay: .7s; }
+    .mini-tile:nth-child(3) .icon { animation-delay: 1.4s; }
+    .mini-tile:hover { transform: translateY(-5px) scale(1.025); box-shadow: 8px 8px 0 rgba(0,0,0,.13); }
+    .status-square { animation: metroStatus 1.8s steps(2,end) infinite; }
+
+    .product-card { overflow: hidden; transform-style: preserve-3d; transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .2s ease, box-shadow .3s ease; }
+    .product-card:after { content: ""; position: absolute; top: -30%; bottom: -30%; left: -45%; width: 28%; background: rgba(255,255,255,.17); transform: skewX(-18deg); pointer-events: none; }
+    .product-card:hover:after { animation: metroSheen .8s ease; }
+    .product-card > * { position: relative; z-index: 1; }
+    .product-card:hover { transform: perspective(800px) translateY(-8px) rotateX(2deg); box-shadow: 12px 16px 0 rgba(0,0,0,.14); }
+    .product-card:active { transform: perspective(800px) scale(.985); }
+    .product-icon { transition: transform .55s cubic-bezier(.16,1,.3,1), background-color .25s ease; transform-style: preserve-3d; }
+    .product-card:hover .product-icon { transform: rotateY(180deg); }
+    .detail-hero .product-icon { animation: metroIconFloat 4s ease-in-out infinite; }
+    .value-item:hover, .workflow-step:hover, .principle:hover { transform: translateY(-7px); box-shadow: 0 10px 0 rgba(0,0,0,.08); }
+    .value-item .icon, .workflow-number, .principle .icon { transition: transform .45s cubic-bezier(.16,1,.3,1); }
+    .value-item:hover .icon, .principle:hover .icon { transform: rotateY(180deg) scale(1.12); }
+    .workflow-step:hover .workflow-number { transform: translateX(8px); }
+    .feature-item:hover { transform: translateX(8px); background: rgba(0,120,212,.055); }
+    .compare-option:hover { transform: translateY(-4px) rotateX(3deg); box-shadow: 5px 6px 0 rgba(0,0,0,.09); }
+    .compare-table tbody tr { transition: background-color .22s ease, transform .22s ease; }
+    .compare-table tbody tr:hover { background: rgba(0,164,239,.07); }
+    .toast.show { animation: metroToast .42s cubic-bezier(.16,1,.3,1) both; }
+    .metro-ripple { position: absolute; z-index: 5; width: 18px; height: 18px; margin: -9px 0 0 -9px; background: rgba(255,255,255,.48); border-radius: 50%; transform: scale(0); animation: metroRipple .68s ease-out forwards; pointer-events: none; }
+    .topbar .metro-ripple, .filter-bar .metro-ripple { background: rgba(0,120,212,.25); }
+
+    .unsupported-browser { display: none; }
+    html.unsupported-browser body { overflow: hidden; background: #1b1b1b; }
+    html.unsupported-browser .app-shell, html.unsupported-browser .toast, html.unsupported-browser .metro-backdrop, html.unsupported-browser .route-progress { display: none !important; }
+    html.unsupported-browser .unsupported-browser { display: flex; position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 1000; align-items: center; justify-content: center; padding: 28px; background: #1b1b1b; color: #fff; }
+    .unsupported-panel { width: 100%; max-width: 720px; padding: 48px; background: #262626; border-top: 8px solid #0078d4; animation: metroUnsupported .55s cubic-bezier(.16,1,.3,1) both; }
+    .unsupported-tiles { margin-bottom: 34px; font-size: 0; }
+    .unsupported-tiles span { display: inline-block; width: 46px; height: 46px; margin: 0 8px 8px 0; background: #0078d4; animation: metroUnsupportedTiles 2.4s ease-in-out infinite; }
+    .unsupported-tiles span:nth-child(2) { background: #008272; animation-delay: .2s; }
+    .unsupported-tiles span:nth-child(3) { background: #d83b01; animation-delay: .4s; }
+    .unsupported-tiles span:nth-child(4) { background: #107c10; animation-delay: .6s; }
+    .unsupported-panel h1 { margin: 8px 0 18px; font-size: 42px; font-weight: 300; line-height: 1.25; }
+    .unsupported-panel p { margin: 10px 0; color: #d2d2d2; font-size: 17px; }
+    .unsupported-panel strong { color: #4cc2ff; font-weight: 600; }
+    .unsupported-note { padding-top: 18px; border-top: 1px solid #484848; font-size: 14px !important; }
+
+    @keyframes metroView { from { opacity: 0; transform: translate3d(46px,0,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+    @keyframes metroTitle { from { opacity: 0; transform: translateX(-22px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes metroTileIn { from { opacity: 0; transform: perspective(800px) translate3d(-48px,24px,0) rotateY(-14deg) scale(.93); } to { opacity: 1; transform: perspective(800px) translate3d(0,0,0) rotateY(0) scale(1); } }
+    @keyframes metroTileAlt { from { opacity: 0; transform: perspective(800px) translate3d(48px,24px,0) rotateY(14deg) scale(.93); } to { opacity: 1; transform: perspective(800px) translate3d(0,0,0) rotateY(0) scale(1); } }
+    @keyframes metroReveal { from { opacity: 0; transform: translateY(38px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes metroPop { 0% { transform: scale(.9); } 65% { transform: scale(1.045); } 100% { transform: scale(1); } }
+    @keyframes metroSheen { from { left: -45%; } to { left: 125%; } }
+    @keyframes metroNavFlip { from { opacity: .2; transform: rotateY(-100deg) translateX(-8px); } to { opacity: 1; transform: rotateY(0) translateX(0); } }
+    @keyframes metroIconBob { 0%,100% { transform: translateY(0) rotate(0); } 45% { transform: translateY(-7px) rotate(-5deg); } 55% { transform: translateY(-7px) rotate(5deg); } }
+    @keyframes metroIconFloat { 0%,100% { transform: translateY(0) rotateY(0); } 50% { transform: translateY(-8px) rotateY(12deg); } }
+    @keyframes metroRailPulse { 0%,70%,100% { opacity: .55; transform: scaleX(.78); } 82% { opacity: 1; transform: scaleX(1); } }
+    @keyframes metroStatus { 0%,45% { opacity: 1; } 50%,95% { opacity: .25; } 100% { opacity: 1; } }
+    @keyframes metroAmbient { from { transform: translate3d(0,0,0) rotate(0); } to { transform: translate3d(-90px,64px,0) rotate(90deg); } }
+    @keyframes metroAmbientReverse { from { transform: translate3d(0,0,0) rotate(0); } to { transform: translate3d(100px,-72px,0) rotate(-90deg); } }
+    @keyframes metroProgress { 0% { width: 0; opacity: 1; } 72% { width: 78%; opacity: 1; } 100% { width: 100%; opacity: 0; } }
+    @keyframes metroToast { from { opacity: 0; transform: translate3d(40px,24px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+    @keyframes metroRipple { 0% { opacity: .65; transform: scale(0); } 100% { opacity: 0; transform: scale(18); } }
+    @keyframes metroUnsupported { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes metroUnsupportedTiles { 0%,100% { transform: rotateY(0) translateY(0); } 50% { transform: rotateY(180deg) translateY(-8px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .metro-reveal { opacity: 1; transform: none; }
+      .metro-backdrop { display: none; }
+    }
+
+    .site-footer { padding: 22px 36px; border-top: 1px solid #d2d2d2; color: #737373; font-size: 12px; }
+    .toast { display: none; position: fixed; right: 24px; bottom: 24px; z-index: 80; max-width: 360px; padding: 13px 18px; background: #201f1f; color: #fff; border-left: 5px solid #00a4ef; }
+    .toast.show { display: block; }
+
+    body.dark { background: #1b1b1b; color: #f4f4f4; }
+    body.dark .sidebar { background: #111; }
+    body.dark .topbar, body.dark .value-strip, body.dark .filter-bar, body.dark .workflow, body.dark .detail-main, body.dark .detail-aside, body.dark .compare-option, body.dark .compare-picker, body.dark .home-load-more, body.dark .compare-table-wrap, body.dark .empty-state, body.dark .about-intro, body.dark .principle, body.dark .demo-note { background: #262626; color: #f4f4f4; }
+    body.dark .section-heading p, body.dark .value-item span, body.dark .workflow-step p, body.dark .feature-item p, body.dark .scenario-list li, body.dark .info-block p, body.dark .compare-table tbody th, body.dark .empty-state p, body.dark .about-copy p, body.dark .principle p, body.dark .demo-note, body.dark .page-eyebrow, body.dark .filter-count, body.dark .site-footer { color: #c8c8c8; }
+    body.dark .section-kicker, body.dark .text-link, body.dark .workflow-number, body.dark .feature-index, body.dark .scenario-list .icon, body.dark .principle .icon, body.dark .value-item .icon, body.dark .about-copy .section-kicker { color: #8bd7ff; }
+    body.dark .topbar, body.dark .feature-item, body.dark .info-block, body.dark .compare-table th, body.dark .compare-table td, body.dark .site-footer { border-color: #484848; }
+    body.dark .compare-table thead th { background: #222; }
+    body.dark .compare-option.selected { background: #173f56; }
+    body.dark .compare-add-select, body.dark .compare-remove { background: #1b1b1b; border-color: #aaa; color: #f4f4f4; }
+    body.dark .compare-add-label, body.dark .compare-hint, body.dark .home-load-status { color: #c8c8c8; }
+    body.dark .icon-button:hover, body.dark .command-button:hover, body.dark .filter-button:hover { background: #3b3b3b; border-color: #484848; }
+    body.dark .button { background: #262626; border-color: #aaa; color: #f4f4f4; }
+    body.dark .button-primary { background: #4cc2ff; border-color: #4cc2ff; color: #14232c; }
+    body.dark .filter-button.active { background: #4cc2ff; border-color: #4cc2ff; color: #14232c; }
+    body.dark .hero .button, body.dark .product-card .button, body.dark .detail-hero .button { background: transparent; border-color: #fff; color: #fff; }
+    body.dark .hero .button-primary, body.dark .product-card .button-primary, body.dark .detail-hero .button-primary, body.dark .closing-panel .button { background: #fff; border-color: #fff; color: #252525; }
+
+    @media (max-width: 1200px) {
+      .hero-copy { padding: 42px; }
+      .hero-copy h2 { font-size: 46px; }
+      .section-heading h2 { font-size: 34px; }
+      .about-copy h2 { font-size: 42px; }
+    }
+    @media (max-width: 1120px) {
+      .hero { display: block; }
+      .hero-copy, .hero-visual { width: 100%; min-height: 0; }
+      .hero-copy { padding: 48px; }
+      .product-card { width: calc(50% - 12px); }
+      .product-card-wide { width: calc(100% - 12px); }
+      .detail-hero { display: block; }
+      .detail-actions { width: auto; margin: 24px 0 0; }
+      .detail-actions .button { width: auto; margin: 0 9px 0 0; }
+      .detail-grid { display: block; margin: 16px 0 0; }
+      .detail-main, .detail-aside { width: auto; margin: 0 0 16px; }
+      .about-copy { padding: 38px; }
+    }
+    @media (max-width: 860px) {
+      .sidebar { left: -280px; width: 270px; }
+      .main-shell, body.nav-collapsed .main-shell { margin-left: 0; }
+      body.nav-open .sidebar { left: 0; }
+      body.nav-open .nav-scrim { display: block; position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 35; background: rgba(0,0,0,.48); border: 0; }
+      body.nav-collapsed .sidebar { width: 270px; }
+      body.nav-collapsed .brand-row { height: auto; min-height: 72px; padding: 14px; }
+      body.nav-collapsed .brand { margin-right: 38px; }
+      body.nav-collapsed .brand-mark { float: left; width: 38px; height: 38px; }
+      body.nav-collapsed #navToggle { left: auto; right: 10px; top: 17px; }
+      body.nav-collapsed .brand-text, body.nav-collapsed .nav-label, body.nav-collapsed .nav-badge, body.nav-collapsed .sidebar-note { display: block; }
+      body.nav-collapsed .brand-text { margin-left: 49px; }
+      body.nav-collapsed .nav-link { padding-left: 13px; padding-right: 13px; text-align: left; }
+      .mobile-nav-toggle { display: inline-block; margin-right: 8px; }
+      .desktop-back { display: none; }
+      .topbar { padding: 10px 18px; }
+      main { padding: 24px 20px 44px; }
+      .site-footer { padding-left: 20px; padding-right: 20px; }
+      .value-strip, .workflow, .about-intro, .principles { display: block; }
+      .value-item, .workflow-step, .about-copy, .about-statement, .principle { width: auto; }
+      .value-item + .value-item, .workflow-step + .workflow-step { border-left: 0; }
+      .about-statement { min-height: 220px; }
+      .principles { margin: 0; }
+      .principle { margin: 0 0 12px; }
+    }
+    @media (max-width: 680px) {
+      .command-button span { display: none; }
+      .command-button { width: 38px; padding: 8px; }
+      .page-eyebrow { display: none; }
+      .page-identity { max-width: 58%; }
+      .hero-copy { padding: 34px 25px 38px; }
+      .hero-copy h2 { font-size: 40px; }
+      .hero-copy > p:not(.section-kicker) { font-size: 15px; }
+      .hero-visual { padding: 22px; }
+      .workspace-rail { width: 54px; padding-left: 6px; padding-right: 6px; }
+      .workspace-main { margin-left: 54px; padding: 20px 14px; }
+      .mini-tile, .mini-tile:first-child { float: none; width: 100%; min-height: 100px; margin: 0 0 8px; }
+      .product-card, .product-card-wide, .product-grid.is-filtered .product-card { width: calc(100% - 12px); min-height: 320px; }
+      .closing-panel { display: block; padding: 28px; }
+      .closing-panel .button { margin: 20px 0 0; }
+      .detail-hero, .detail-main, .detail-aside { padding: 24px; }
+      .detail-hero h1 { font-size: 38px; }
+      .detail-title-row .product-icon { margin-bottom: 16px; }
+      .detail-title-text { clear: both; }
+      .detail-tagline { font-size: 20px; }
+      .section-heading h2 { font-size: 30px; }
+      .filter-count { float: none; display: block; padding: 7px 9px; }
+      .product-search { display: block; width: 100%; margin: 0 0 8px; }
+      .about-copy h2 { font-size: 36px; }
+      .compare-toolbar { display: block; }
+      .compare-add-select { width: 100%; min-width: 0; }
+      .compare-hint { margin-top: 8px; text-align: left; }
+    }
+    @media print {
+      body { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+    <defs>
+      <symbol id="icon-cat" viewBox="0 0 32 32"><path d="M7 13V5l6 5c1-.4 2-.6 3-.6s2 .2 3 .6l6-5v8c1 1.7 1.5 3.7 1.5 5.8 0 5.4-4.5 9.2-10.5 9.2S5.5 24.2 5.5 18.8C5.5 16.7 6 14.7 7 13Z" fill="currentColor" stroke="none"/><path d="M11.5 18h.01M20.5 18h.01M14 22h4" stroke="#0078d4" stroke-width="2.2"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8M5 10v10h14V10M9 20v-6h6v6"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></symbol>
+      <symbol id="icon-compare" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></symbol>
+      <symbol id="icon-sync" viewBox="0 0 24 24"><path d="M20 7a9 9 0 0 0-15-2L2 8M2 3v5h5M4 17a9 9 0 0 0 15 2l3-3M22 21v-5h-5"/></symbol>
+      <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+      <symbol id="icon-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
+      <symbol id="icon-os" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15"/><path d="M8 22h8M12 18v4M5 7h6v6H5zM13 7h6M13 11h6"/></symbol>
+      <symbol id="icon-access" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M4 8h16M12 6v8M8 22l4-8 4 8M8 12l4 2 4-2"/></symbol>
+      <symbol id="icon-ai" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3M10 10h4v4h-4z"/></symbol>
+      <symbol id="icon-game" viewBox="0 0 24 24"><path d="M8 6h8a6 6 0 0 1 5.7 7.8l-1.4 4.5a2.5 2.5 0 0 1-4.2 1L14 17h-4l-2.1 2.3a2.5 2.5 0 0 1-4.2-1l-1.4-4.5A6 6 0 0 1 8 6Z"/><path d="M7 10v4M5 12h4M16 11h.01M18 14h.01"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5M7 10h7M10.5 6.5v7"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="icon-cursor" viewBox="0 0 24 24"><path d="m4 3 7 17 2.5-6.5L20 11 4 3Z"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M17 14a5 5 0 0 1 4 5v2"/></symbol>
+      <symbol id="icon-cloud" viewBox="0 0 24 24"><path d="M6 19a5 5 0 0 1-.6-10A7 7 0 0 1 19 8a5.5 5.5 0 0 1-1 11H6Z"/></symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 5-6 7 6 7M16 5l6 7-6 7M14 2l-4 20"/></symbol>
+      <symbol id="icon-megaphone" viewBox="0 0 24 24"><path d="M3 10v4h4l9 5V5l-9 5H3ZM7 14l2 7h4l-2-6M19 9a4 4 0 0 1 0 6"/></symbol>
+      <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M3 3h18v14H9l-6 4V3Z"/><path d="M7 8h10M7 12h7"/></symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="8" cy="8" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></symbol>
+      <symbol id="icon-document" viewBox="0 0 24 24"><path d="M5 2h9l5 5v15H5V2Z"/><path d="M14 2v6h5M8 12h8M8 16h8"/></symbol>
+      <symbol id="icon-travel" viewBox="0 0 24 24"><path d="M3 16h18M5 16l2-7h10l2 7M8 9V5h8v4M7 16v3M17 16v3"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2 3 7 7 .8-5.2 4.7 1.5 7-6.3-3.7-6.3 3.7 1.5-7L2 9.8 9 9l3-7Z"/></symbol>
+      <symbol id="icon-wallet" viewBox="0 0 24 24"><path d="M3 5h16v16H3V5ZM3 8h16M15 12h6v5h-6a2.5 2.5 0 0 1 0-5Z"/></symbol>
+      <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5ZM3 7l9 5 9-5M12 12v10M7.5 4.5l9 5"/></symbol>
+      <symbol id="icon-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 2H4a2 2 0 0 0-2 2c0 9 9 18 18 18a2 2 0 0 0 2-2v-3l-5-2-2 3a15 15 0 0 1-9-9l3-2-2-5Z"/></symbol>
+      <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.5 10.5 7-4M8.5 13.5l7 4"/></symbol>
+      <symbol id="icon-package" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5ZM3 7v10l9 5 9-5V7M12 12v10M8 4l9 5"/></symbol>
+      <symbol id="icon-keyboard" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M7 16h10"/></symbol>
+      <symbol id="icon-kitchen" viewBox="0 0 24 24"><path d="M4 3h16v7a8 8 0 0 1-16 0V3ZM8 18h8M12 18v4M7 3v4M12 3v4M17 3v4"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18"/><path d="m9 7 8 5-8 5V7Z"/></symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24"><path d="M3 4h7a3 3 0 0 1 3 3v15a4 4 0 0 0-4-3H3V4ZM21 4h-5a3 3 0 0 0-3 3v15a4 4 0 0 1 4-3h4V4Z"/></symbol>
+      <symbol id="icon-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
+      <symbol id="icon-translate" viewBox="0 0 24 24"><path d="M3 4h10M8 2v2M5 4c1 5 3 8 7 10M11 4c-1 4-4 8-8 10M13 21l4-10 4 10M14.5 17h5"/></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 17v-5M12 17V7M17 17V4"/></symbol>
+      <symbol id="icon-tv" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14"/><path d="m8 2 4 3 4-3M8 22h8M10 9l6 3-6 3V9Z"/></symbol>
+      <symbol id="icon-watch" viewBox="0 0 24 24"><path d="M8 5 9 1h6l1 4M8 19l1 4h6l1-4"/><rect x="6" y="5" width="12" height="14"/><path d="M12 8v4l3 2"/></symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21S3 15 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 13-9 13Z"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="17"/><path d="M7 2v6M17 2v6M3 10h18M7 14h3M14 14h3M7 18h3M14 18h3"/></symbol>
+      <symbol id="icon-plugin" viewBox="0 0 24 24"><path d="M8 3h8v5h5v8h-5v5H8v-5H3V8h5V3Z"/><path d="M12 8v8M8 12h8"/></symbol>
+      <symbol id="icon-pen" viewBox="0 0 24 24"><path d="m4 20 4-1 12-12-3-3L5 16l-1 4ZM14 7l3 3M4 20l4-4"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="12"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v4"/></symbol>
+      <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M4 7h16l1 15H3L4 7Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14"/><path d="M9 7V3h6v4M3 12h18M10 12v3h4v-3"/></symbol>
+      <symbol id="icon-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="5"/><path d="m11 11 10-10M16 6l3 3M14 8l3 3"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="route-progress" id="routeProgress" aria-hidden="true"></div>
+  <div class="metro-backdrop" aria-hidden="true"><span class="ambient-tile ambient-one"></span><span class="ambient-tile ambient-two"></span><span class="ambient-tile ambient-three"></span><span class="ambient-tile ambient-four"></span></div>
+  <div class="unsupported-browser" role="alert" aria-live="assertive">
+    <div class="unsupported-panel">
+      <div class="unsupported-tiles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <p class="section-kicker">浏览器不兼容</p>
+      <h1>请更换浏览器后继续</h1>
+      <p>检测到 <strong id="unsupportedName">IE、Firefox 或 Safari</strong>，本站已停止支持该浏览器。</p>
+      <p>请使用最新版 Microsoft Edge 或 Google Chrome 打开小猫科技产品介绍。</p>
+      <p class="unsupported-note">IE、Firefox 与 Safari 不再提供页面功能和显示兼容。</p>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="主导航">
+      <div class="brand-row">
+        <a class="brand" href="#/home" aria-label="小猫科技首页"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-cat" xlink:href="#icon-cat"/></svg></span><span class="brand-text"><span class="brand-name">小猫科技</span><span class="brand-subtitle">CAT TECH</span></span></a>
+        <button class="icon-button" id="navToggle" type="button" aria-label="展开或收起导航" aria-controls="sidebar"><svg class="icon"><use href="#icon-menu" xlink:href="#icon-menu"/></svg></button>
+      </div>
+      <nav class="nav-list">
+        <a class="nav-link" href="#/home" data-nav="home"><svg class="icon"><use href="#icon-home" xlink:href="#icon-home"/></svg><span class="nav-label">首页</span></a>
+        <a class="nav-link" href="#/products" data-nav="products"><svg class="icon"><use href="#icon-grid" xlink:href="#icon-grid"/></svg><span class="nav-label">产品中心</span></a>
+        <a class="nav-link" href="#/compare" data-nav="compare"><svg class="icon"><use href="#icon-compare" xlink:href="#icon-compare"/></svg><span class="nav-label">产品对比</span><span class="nav-badge" id="compareBadge">5</span></a>
+        <a class="nav-link" href="#/about" data-nav="about"><svg class="icon"><use href="#icon-info" xlink:href="#icon-info"/></svg><span class="nav-label">关于小猫</span></a>
+      </nav>
+      <div class="sidebar-note"><strong>让科技，更轻一点。</strong><span>系统 · 智能 · 学习 · 搜索</span></div>
+    </aside>
+    <button class="nav-scrim" id="navScrim" type="button" aria-label="关闭导航"></button>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="icon-button mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="打开导航" aria-controls="sidebar"><svg class="icon"><use href="#icon-menu" xlink:href="#icon-menu"/></svg></button>
+        <button class="icon-button desktop-back" id="backButton" type="button" aria-label="返回上一页"><svg class="icon"><use href="#icon-back" xlink:href="#icon-back"/></svg></button>
+        <div class="page-identity"><div class="page-eyebrow">小猫科技 / 产品介绍</div><h1 class="page-title" id="pageTitle">首页</h1></div>
+        <div class="command-bar" aria-label="页面工具"><button class="command-button" id="themeToggle" type="button" aria-label="切换深色主题" aria-pressed="false" title="切换深浅色主题"><svg class="icon" id="themeIcon"><use id="themeIconUse" href="#icon-moon" xlink:href="#icon-moon"/></svg><span id="themeLabel">深色主题</span></button></div>
+      </header>
+      <noscript><div style="padding:16px;background:#fff3cd;color:#5d4400">请启用 JavaScript，以使用产品详情、筛选和对比功能。</div></noscript>
+
+      <main id="mainContent">
+        <!-- ===== 视图：首页 ===== -->
+        <section class="view" data-view="home" aria-labelledby="homeHeading">
+          <div class="hero">
+            <div class="hero-copy">
+              <p class="section-kicker">小猫科技产品家族</p>
+              <h2 id="homeHeading">一百种产品，打开你的数字世界。</h2>
+              <p>从系统、AI与搜索，到社交、云服务、内容创作、学习成长和生活方式。小猫科技用鲜明、直接的产品体验，连接更多年龄、兴趣与数字场景。</p>
+              <div class="button-row"><a class="button button-primary" href="#/products">探索产品<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><a class="button" href="#/compare">查看产品对比</a></div>
+            </div>
+            <div class="hero-visual" aria-label="小猫操作系统开始界面示意">
+              <div class="workspace">
+                <div class="workspace-bar"><span class="brand-mark"><svg class="icon"><use href="#icon-cat" xlink:href="#icon-cat"/></svg></span>小猫操作系统<span>开始</span></div>
+                <div class="workspace-body">
+                  <div class="workspace-rail" aria-hidden="true"><div class="rail-block active"></div><div class="rail-block"></div><div class="rail-block"></div><div class="rail-block"></div></div>
+                  <div class="workspace-main"><small>你好，欢迎回来</small><h3>常用的一切，触手可及。</h3>
+                    <div class="mini-tiles">
+                      <div class="mini-tile"><svg class="icon"><use href="#icon-os" xlink:href="#icon-os"/></svg><strong>分龄桌面</strong><span>未成年人与成年人，各有合适入口</span></div>
+                      <div class="mini-tile"><svg class="icon"><use href="#icon-ai" xlink:href="#icon-ai"/></svg><strong>小猫AI</strong><span>聊天与媒体生成</span></div>
+                      <div class="mini-tile"><svg class="icon"><use href="#icon-game" xlink:href="#icon-game"/></svg><strong>小猫游戏</strong><span>知识关卡与体验增强</span></div>
+                    </div>
+                    <div class="workspace-status"><span class="status-square"></span>系统、智能、学习与搜索，从这里开始</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="value-strip" aria-label="产品特点">
+            <div class="value-item"><svg class="icon"><use href="#icon-os" xlink:href="#icon-os"/></svg><div><strong>分龄与适老，各得其所</strong><span>小猫系统覆盖未成年人与成年人，老坛系统服务老年用户</span></div></div>
+            <div class="value-item"><svg class="icon"><use href="#icon-ai" xlink:href="#icon-ai"/></svg><div><strong>聊天、生成与搜索</strong><span>小猫AI支持媒体生成，小猫系统擅长局域网共享内容搜索</span></div></div>
+            <div class="value-item"><svg class="icon"><use href="#icon-game" xlink:href="#icon-game"/></svg><div><strong>学习游戏，寓教于乐</strong><span>知识关卡配合体验增强服务，让学习更有参与感</span></div></div>
+          </div>
+
+          <section class="home-section" aria-labelledby="familyHeading">
+            <div class="section-heading"><p class="section-kicker">一百款产品，一个小猫生态</p><h2 id="familyHeading">从系统到探索，各有一方天地</h2><p>每款产品专注一种核心体验，也能陪伴你自然切换不同数字场景。</p></div>
+            <div class="product-grid">
+              <article class="product-card product-card-wide" style="background-color:#0078d4"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-os" xlink:href="#icon-os"/></svg></div><span class="product-category">操作系统</span><h3>小猫操作系统</h3><span class="product-en">Cat OS</span><p>面向未成年人与成年人，提供分龄桌面，并擅长查找局域网内已共享的文件、设备与媒体内容。</p><div class="product-actions"><a class="text-link" href="#/product/cat-os">查看详情<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><button class="button" type="button" data-compare="cat-os" aria-pressed="true">移出对比</button></div></article>
+              <article class="product-card" style="background-color:#455a64"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-access" xlink:href="#icon-access"/></svg></div><span class="product-category">操作系统</span><h3>老坛操作系统</h3><span class="product-en">LaoTan OS</span><p>专为老年用户优化，以大字体、高对比显示、简化桌面和语音辅助，让常用操作看得清、找得到。</p><div class="product-actions"><a class="text-link" href="#/product/laotan-os">查看详情<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><button class="button" type="button" data-compare="laotan-os" aria-pressed="true">移出对比</button></div></article>
+              <article class="product-card" style="background-color:#008272"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-ai" xlink:href="#icon-ai"/></svg></div><span class="product-category">人工智能</span><h3>小猫AI</h3><span class="product-en">Cat AI</span><p>支持与用户自然聊天，也能根据描述生成图片、音频与视频，让交流延伸到媒体创作。</p><div class="product-actions"><a class="text-link" href="#/product/ai">查看详情<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><button class="button" type="button" data-compare="ai" aria-pressed="true">移出对比</button></div></article>
+              <article class="product-card" style="background-color:#d83b01"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-game" xlink:href="#icon-game"/></svg></div><span class="product-category">教育游戏</span><h3>小猫游戏</h3><span class="product-en">Cat Games</span><p>以学习为主的教育游戏，把知识练习融入关卡，并通过体验增强服务提供反馈、难度调节与成长激励。</p><div class="product-actions"><a class="text-link" href="#/product/games">查看详情<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><button class="button" type="button" data-compare="games" aria-pressed="true">移出对比</button></div></article>
+              <article class="product-card" style="background-color:#107c10"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-search" xlink:href="#icon-search"/></svg></div><span class="product-category">信息检索</span><h3>小猫搜索</h3><span class="product-en">Cat Search</span><p>从关键词到有用信息，用分类、筛选与整理功能减少查找的时间。</p><div class="product-actions"><a class="text-link" href="#/product/search">查看详情<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a><button class="button" type="button" data-compare="search" aria-pressed="true">移出对比</button></div></article>
+            </div>
+            <div class="home-load-more" id="homeLoadMore"><button class="button button-primary" id="homeMoreButton" type="button">加载更多产品</button><span class="home-load-status" id="homeLoadStatus">已显示 5 / 100 款，向下滚动自动加载</span></div>
+          </section>
+
+          <section class="home-section" aria-labelledby="workflowHeading">
+            <div class="section-heading"><h2 id="workflowHeading">从一款产品，进入小猫生态</h2><p>根据年龄与当下需要选择入口，在系统、智能创作、学习游戏与信息搜索之间自然切换。</p></div>
+            <div class="workflow"><div class="workflow-step"><span class="workflow-number">01</span><h3>选择适合的系统</h3><p>小猫操作系统提供分龄体验与局域网搜索，老坛操作系统则为老年用户提供大字和简化操作。</p></div><div class="workflow-step"><span class="workflow-number">02</span><h3>聊天、生成与发现</h3><p>与小猫AI自然聊天并生成媒体内容，再用小猫搜索整理需要的网络信息。</p></div><div class="workflow-step"><span class="workflow-number">03</span><h3>在游戏中继续学习</h3><p>通过小猫游戏的知识关卡与体验增强服务，让练习、反馈和成长激励形成连续过程。</p></div></div>
+          </section>
+          <div class="closing-panel"><div><h2>找到适合你的那一款</h2><p>按核心用途比较一百款产品，快速确定体验方向。</p></div><a class="button button-primary" href="#/compare">开始对比<svg class="icon icon-sm"><use href="#icon-arrow" xlink:href="#icon-arrow"/></svg></a></div>
+        </section>
+
+        <!-- ===== 视图：产品中心 ===== -->
+        <section class="view" data-view="products" aria-labelledby="productsHeading" hidden>
+          <div class="section-heading"><p class="section-kicker">产品中心</p><h2 id="productsHeading">100 款产品，覆盖系统、社交、云服务、创作与成长</h2><p>按方向筛选或直接搜索产品名称，查看产品能力；也可以加入对比，集中了解差异。</p></div>
+          <div class="filter-bar" role="group" aria-label="筛选和搜索产品"><input class="product-search" id="productSearch" type="search" placeholder="搜索 100 款产品" aria-label="搜索产品"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true">全部</button><button class="filter-button" type="button" data-filter="操作系统" aria-pressed="false">操作系统</button><button class="filter-button" type="button" data-filter="人工智能" aria-pressed="false">人工智能</button><button class="filter-button" type="button" data-filter="教育游戏" aria-pressed="false">教育游戏</button><button class="filter-button" type="button" data-filter="信息检索" aria-pressed="false">信息检索</button><button class="filter-button" type="button" data-filter="社交通讯" aria-pressed="false">社交通讯</button><button class="filter-button" type="button" data-filter="云端服务" aria-pressed="false">云端服务</button><button class="filter-button" type="button" data-filter="应用开发" aria-pressed="false">应用开发</button><button class="filter-button" type="button" data-filter="商务服务" aria-pressed="false">商务服务</button><button class="filter-button" type="button" data-filter="内容文档" aria-pressed="false">内容文档</button><button class="filter-button" type="button" data-filter="生活探索" aria-pressed="false">生活探索</button><button class="filter-button" type="button" data-filter="安全隐私" aria-pressed="false">安全隐私</button><button class="filter-button" type="button" data-filter="健康运动" aria-pressed="false">健康运动</button><button class="filter-button" type="button" data-filter="智能生活" aria-pressed="false">智能生活</button><button class="filter-button" type="button" data-filter="影音娱乐" aria-pressed="false">影音娱乐</button><button class="filter-button" type="button" data-filter="创意媒体" aria-pressed="false">创意媒体</button><button class="filter-button" type="button" data-filter="效率协作" aria-pressed="false">效率协作</button><button class="filter-button" type="button" data-filter="成长门户" aria-pressed="false">成长门户</button><span class="filter-count" id="filterCount">显示 100 款产品</span></div>
+          <div class="product-grid" id="catalogGrid">
+            <article class="product-card product-card-wide" data-product-card data-category="操作系统" style="background-color:#0078d4"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-os" xlink:href="#icon-os"/></svg></div><span class="product-category">操作系统</span><h3>小猫操作系统</h3><span class="product-en">Cat OS</span><p>分龄体验覆盖未成年人与成年人，支持成长守护、成人工作台和局域网共享内容搜索。</p><div class="product-actions"><a class="button button-primary" href="#/product/cat-os">查看产品详情</a><button class="button" type="button" data-compare="cat-os" aria-pressed="true">移出对比</button></div></article>
+            <article class="product-card" data-product-card data-category="操作系统" style="background-color:#455a64"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-access" xlink:href="#icon-access"/></svg></div><span class="product-category">操作系统</span><h3>老坛操作系统</h3><span class="product-en">LaoTan OS</span><p>面向老年用户的大字与简化系统，提供语音辅助和清晰反馈，降低常用操作的学习门槛。</p><div class="product-actions"><a class="button button-primary" href="#/product/laotan-os">查看产品详情</a><button class="button" type="button" data-compare="laotan-os" aria-pressed="true">移出对比</button></div></article>
+            <article class="product-card" data-product-card data-category="人工智能" style="background-color:#008272"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-ai" xlink:href="#icon-ai"/></svg></div><span class="product-category">人工智能</span><h3>小猫AI</h3><span class="product-en">Cat AI</span><p>既能与用户聊天，也能生成图片、音频和视频，并可在连续对话中继续修改媒体作品。</p><div class="product-actions"><a class="button button-primary" href="#/product/ai">查看产品详情</a><button class="button" type="button" data-compare="ai" aria-pressed="true">移出对比</button></div></article>
+            <article class="product-card" data-product-card data-category="教育游戏" style="background-color:#d83b01"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-game" xlink:href="#icon-game"/></svg></div><span class="product-category">教育游戏</span><h3>小猫游戏</h3><span class="product-en">Cat Games</span><p>以知识关卡和互动挑战承载学习，通过体验增强服务提升学习兴趣与参与感。</p><div class="product-actions"><a class="button button-primary" href="#/product/games">查看产品详情</a><button class="button" type="button" data-compare="games" aria-pressed="true">移出对比</button></div></article>
+            <article class="product-card" data-product-card data-category="信息检索" style="background-color:#107c10"><div class="product-icon"><svg class="icon icon-lg"><use href="#icon-search" xlink:href="#icon-search"/></svg></div><span class="product-category">信息检索</span><h3>小猫搜索</h3><span class="product-en">Cat Search</span><p>快速查找、筛选并整理信息，让每一次搜索更接近所需答案。</p><div class="product-actions"><a class="button button-primary" href="#/product/search">查看产品详情</a><button class="button" type="button" data-compare="search" aria-pressed="true">移出对比</button></div></article>
+          </div>
+          <div class="empty-state" id="filterEmpty" hidden><svg class="icon icon-lg"><use href="#icon-search" xlink:href="#icon-search"/></svg><h3>没有找到匹配的产品</h3><p>请尝试其他关键词，或切换到“全部”分类。</p></div>
+        </section>
+
+        <!-- ===== 视图：产品详情 ===== -->
+        <section class="view" data-view="product" aria-label="产品详情" hidden><div id="productDetail"></div></section>
+
+        <!-- ===== 视图：产品对比 ===== -->
+        <section class="view" data-view="compare" aria-labelledby="compareHeading" hidden>
+          <div class="section-heading"><p class="section-kicker">产品对比</p><h2 id="compareHeading">选择适合当前需求的体验</h2><p>通过下拉菜单添加产品，已选产品以标签呈现，再从产品方向、核心用途、关键能力和适用人群进行比较。</p></div>
+          <div id="compareContent"></div>
+        </section>
+
+        <!-- ===== 视图：关于公司 ===== -->
+        <section class="view" data-view="about" aria-labelledby="aboutHeading" hidden>
+          <div class="about-intro"><div class="about-copy"><p class="section-kicker">关于小猫科技</p><h2 id="aboutHeading">技术应该减轻负担，也应该保留乐趣。</h2><p>小猫科技专注于操作系统、人工智能与数字生活产品的设计。我们关注不同年龄用户怎样使用系统、信息怎样被理解、学习怎样融入游戏，并将这些观察转化为清晰、直接的产品体验。</p></div><div class="about-statement"><blockquote>让每一种数字生活，都有简单入口。</blockquote></div></div>
+          <section class="home-section" aria-labelledby="principlesHeading"><div class="section-heading"><h2 id="principlesHeading">我们如何做产品</h2><p>三个简单原则，贯穿从功能判断到界面呈现的每一步。</p></div><div class="principles"><article class="principle"><svg class="icon icon-lg"><use href="#icon-cursor" xlink:href="#icon-cursor"/></svg><h3>先理解，再设计</h3><p>从真实任务出发，减少不必要的步骤，不让功能数量代替实际价值。</p></article><article class="principle"><svg class="icon icon-lg"><use href="#icon-layers" xlink:href="#icon-layers"/></svg><h3>保持清晰一致</h3><p>用统一的信息层级与交互反馈，让使用者在不同场景中都能快速理解。</p></article><article class="principle"><svg class="icon icon-lg"><use href="#icon-shield" xlink:href="#icon-shield"/></svg><h3>尊重每个使用者</h3><p>关注可访问性、可解释性与使用节奏，让技术适应人，而不是相反。</p></article></div></section>
+          <div class="demo-note">说明：本页面为“小猫科技”产品介绍演示站，品牌、产品名称与功能文案均为示例，可按实际产品信息进一步修改。本页面不包含软件下载、在线购买、账号登录或服务端数据提交功能。</div>
+        </section>
+      </main>
+      <footer class="site-footer"><span>小猫科技 · 让科技，更轻一点</span></footer>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    if (window.unsupportedBrowserName) {
+      var unsupportedLabel = document.getElementById("unsupportedName");
+      if (unsupportedLabel) unsupportedLabel.textContent = window.unsupportedBrowserName;
+    }
+
+    var products = {
+      "cat-os": {
+        name: "小猫操作系统", en: "Cat OS", category: "操作系统", icon: "os", color: "#0078d4",
+        tagline: "陪伴孩子成长，也装下成年人的效率。",
+        description: "小猫操作系统面向未成年人与成年人，以分龄桌面匹配不同年龄段的内容与操作需求，同时擅长在局域网中查找设备已共享的文件、媒体与其他内容。",
+        features: [
+          { title: "分龄桌面", text: "为未成年人提供清晰、适龄的学习与应用入口，为成年人提供完整、高效的标准工作台。" },
+          { title: "局域网搜索", text: "在同一局域网内查找已获得共享权限的文件、设备和媒体内容，减少在多台设备间反复寻找。" },
+          { title: "成长守护", text: "围绕使用时长、可用应用和内容入口设置家庭规则，帮助未成年人建立健康的使用习惯。" },
+          { title: "成人工作台", text: "通过多任务管理、文件整理与快捷操作，支持办公、学习和内容创作。" }
+        ],
+        scenarios: ["未成年人学习与探索", "成年人办公与内容创作", "局域网共享内容查找", "家庭共用与成长管理"],
+        fit: "需要适龄体验的未成年人，以及重视效率与局域网共享检索的成年用户",
+        start: "根据使用者年龄选择成长或标准模式，再整理常用应用与局域网共享范围。",
+        purpose: "分龄体验、全家使用与局域网内容搜索",
+        capabilities: "分龄桌面、局域网搜索、成长守护、成人工作台"
+      },
+      "laotan-os": {
+        name: "老坛操作系统", en: "LaoTan OS", category: "操作系统", icon: "access", color: "#455a64",
+        tagline: "看得清、找得到，让每一步都更简单。",
+        description: "老坛操作系统侧重老年用户，以大字体、高对比显示、简化菜单和清晰操作反馈降低学习门槛，帮助长辈更安心、独立地完成常用操作。",
+        features: [
+          { title: "大字阅读", text: "放大系统文字与关键图标，配合高对比显示，让标题、按钮和提示更容易辨认。" },
+          { title: "简化桌面", text: "减少不常用入口，把联系人、照片、视频通话和常用应用集中放在清楚的位置。" },
+          { title: "语音辅助", text: "通过语音提示与操作引导辅助查找功能，让不熟悉电脑的用户也能一步一步完成。" },
+          { title: "安心反馈", text: "重要操作提供明确确认和结果提示，减少误触后不知道如何处理的情况。" }
+        ],
+        scenarios: ["视频通话与家庭联系", "新闻阅读与生活查询", "照片查看与日常娱乐"],
+        fit: "希望轻松使用电脑、偏好大字与简化操作的老年用户",
+        start: "先开启大字与简化模式，再把常用联系人和应用放在桌面。",
+        purpose: "适老化操作与便捷沟通",
+        capabilities: "大字模式、高对比显示、简化桌面、语音辅助"
+      },
+      ai: {
+        name: "小猫AI", en: "Cat AI", category: "人工智能", icon: "ai", color: "#008272",
+        tagline: "聊得来，也能把灵感变成媒体作品。",
+        description: "小猫AI支持与用户自然聊天，也能根据文字描述生成图片、音频与视频等媒体内容，为日常交流、学习探索和创意表达提供连续支持。",
+        features: [
+          { title: "自然聊天", text: "围绕日常问题、学习话题与创意想法进行连续对话，可以补充背景、追问和调整方向。" },
+          { title: "媒体生成", text: "根据用户的描述生成图片、音频和视频素材，把抽象想法转化为可查看、可聆听的内容。" },
+          { title: "创意修改", text: "在聊天中继续补充要求，调整风格、内容与表达方式，逐步完善生成的媒体作品。" }
+        ],
+        scenarios: ["日常聊天与问题交流", "图片与音视频素材生成", "创意修改与内容完善"],
+        fit: "需要交流陪伴、学习辅助与媒体创作的用户",
+        start: "从一次聊天或一句创意描述开始，再继续调整生成结果。",
+        purpose: "用户聊天与媒体生成",
+        capabilities: "自然聊天、图片生成、音频生成、视频生成"
+      },
+      games: {
+        name: "小猫游戏", en: "Cat Games", category: "教育游戏", icon: "game", color: "#d83b01",
+        tagline: "把知识放进关卡，让学习变成愿意继续的冒险。",
+        description: "小猫游戏是一款以学习为主的教育游戏，将知识练习融入关卡、解谜与任务挑战，并通过体验增强服务提供即时反馈、难度调节和成长激励。",
+        features: [
+          { title: "知识关卡", text: "把语文、英语、数学与科学等学习内容转化为互动关卡，在完成任务的过程中练习知识。" },
+          { title: "体验增强服务", text: "通过学习伙伴、即时反馈、难度调节和虚拟奖励增强参与感，帮助学习者保持兴趣。" },
+          { title: "成长记录", text: "记录已掌握内容、待巩固知识与关卡进度，让每一次学习都有清楚的回顾。" }
+        ],
+        scenarios: ["语文与英语趣味练习", "数学与科学关卡挑战", "学习习惯培养与知识巩固"],
+        fit: "希望通过游戏激发兴趣、巩固知识的学习者",
+        start: "选择适合的学习主题，从一段短关卡开始。",
+        purpose: "寓教于乐与知识练习",
+        capabilities: "知识关卡、体验增强服务、即时反馈、成长激励"
+      },
+      search: {
+        name: "小猫搜索", en: "Cat Search", category: "信息检索", icon: "search", color: "#107c10",
+        tagline: "少一点翻找，更快接近需要的答案。",
+        description: "小猫搜索用于发现与整理网络信息，通过关键词检索、分类筛选和结果整理，帮助用户减少重复查找，把有用内容留在手边。",
+        features: [
+          { title: "精准检索", text: "围绕关键词与内容分类组织搜索，让查找方向更加明确。" },
+          { title: "结果整理", text: "通过筛选与摘要快速判断结果是否相关，减少无效打开与重复阅读。" },
+          { title: "收藏稍后读", text: "将有用的结果加入收藏或稍后读清单，方便继续查阅与比较。" }
+        ],
+        scenarios: ["学习资料查找", "产品与服务信息比较", "日常问题快速查询"],
+        fit: "需要高效获取与整理信息的用户",
+        start: "输入一个关键词，再用分类与筛选缩小结果范围。",
+        purpose: "信息检索与内容发现",
+        capabilities: "关键词搜索、分类筛选、结果摘要、收藏整理"
+      },
+      social: {
+        name: "小猫社交软件", en: "Cat Social", category: "社交通讯", icon: "users", color: "#0078d4",
+        tagline: "把朋友、兴趣与生活动态放在同一个社交空间。",
+        description: "小猫社交软件用于建立联系、分享动态和参与兴趣交流，让用户围绕朋友、家庭与共同话题保持互动。",
+        features: [
+          { title: "动态分享", text: "发布文字、图片与生活动态，集中查看朋友和关注对象的更新。" },
+          { title: "联系人网络", text: "管理朋友、家庭和关注关系，快速找到想要联系的人。" },
+          { title: "兴趣群组", text: "围绕共同爱好加入群组讨论，让交流从联系人延伸到兴趣社区。" }
+        ],
+        scenarios: ["朋友与家庭联系", "生活动态分享", "兴趣群组交流"],
+        fit: "希望集中管理社交关系、分享生活并参与兴趣讨论的用户",
+        start: "完善个人资料，添加常用联系人，再选择感兴趣的内容与群组。",
+        purpose: "社交关系、生活动态与兴趣交流"
+      },
+      service: {
+        name: "小猫即服务", en: "Cat Service", category: "云端服务", icon: "cloud", color: "#455a64",
+        tagline: "一个入口，按需连接多种在线服务。",
+        description: "小猫即服务以类似 WL 的一站式服务形态整合在线应用与资源，通过统一入口按需启用服务，减少在不同工具之间来回切换。",
+        features: [
+          { title: "统一服务入口", text: "把常用在线服务集中在同一个界面，按任务快速找到对应入口。" },
+          { title: "按需启用", text: "根据当前需要选择服务内容，不必一次面对所有功能。" },
+          { title: "资源衔接", text: "让相关应用、内容与账户内资源围绕同一任务连续衔接。" }
+        ],
+        scenarios: ["常用服务集中访问", "在线资源统一整理", "跨应用任务衔接"],
+        fit: "希望通过统一入口按需使用多种在线服务的用户",
+        start: "从常用服务清单开始，把需要的能力加入个人服务入口。",
+        purpose: "一站式在线服务整合与按需访问"
+      },
+      store: {
+        name: "小猫应用商店", en: "Cat Store", category: "应用开发", icon: "grid", color: "#008272",
+        tagline: "发现应用，也管理每一次安装与更新。",
+        description: "小猫应用商店集中展示应用、游戏与工具，通过分类、排行和应用详情帮助用户发现内容，并统一管理安装与更新。",
+        features: [
+          { title: "应用发现", text: "通过分类、排行和编辑推荐浏览不同用途的应用。" },
+          { title: "详情判断", text: "查看应用介绍、功能要点与版本信息，再决定是否获取。" },
+          { title: "安装更新", text: "集中管理已安装应用与可用更新，保持软件清单清晰。" }
+        ],
+        scenarios: ["寻找新应用", "浏览分类与排行", "管理安装和更新"],
+        fit: "需要发现、获取和管理应用的用户",
+        start: "从分类或搜索开始，查看应用详情并整理常用软件。",
+        purpose: "应用发现、获取与更新管理"
+      },
+      dev: {
+        name: "小猫开发", en: "Cat Dev", category: "应用开发", icon: "code", color: "#455a64",
+        tagline: "从一段代码，到一个可以使用的产品。",
+        description: "小猫开发面向应用与网页创作者，整合编码、调试、文档示例和项目管理入口，支持从开发到发布的连续工作流程。",
+        features: [
+          { title: "编码与项目", text: "围绕项目组织代码、资源与配置，让开发任务保持清晰。" },
+          { title: "调试辅助", text: "集中查看运行状态和问题线索，辅助定位与修复错误。" },
+          { title: "文档示例", text: "通过接口文档和可复用示例理解功能，减少重复摸索。" }
+        ],
+        scenarios: ["应用与网页开发", "代码调试", "技术文档与示例学习"],
+        fit: "需要完成编码、调试和项目管理的开发者与学习者",
+        start: "创建一个项目，选择对应模板，再从文档示例进入开发。",
+        purpose: "应用开发、调试与技术资源管理"
+      },
+      ads: {
+        name: "小猫广告", en: "Cat Ads", category: "商务服务", icon: "megaphone", color: "#d83b01",
+        tagline: "让推广内容更清楚地到达目标受众。",
+        description: "小猫广告用于组织推广内容、选择投放方向并查看效果数据，帮助品牌和产品以更清晰的方式开展数字推广。",
+        features: [
+          { title: "广告创建", text: "围绕推广目标整理标题、素材与落地内容。" },
+          { title: "投放管理", text: "按受众、预算与展示方向组织投放计划。" },
+          { title: "效果分析", text: "通过展示、互动与转化数据比较推广表现。" }
+        ],
+        scenarios: ["产品推广", "品牌内容投放", "广告效果复盘"],
+        fit: "需要创建、管理和评估数字广告的团队与商家",
+        start: "明确推广目标与受众，再准备素材并设置投放计划。",
+        purpose: "数字广告创建、投放与效果分析"
+      },
+      chat: {
+        name: "小猫聊天", en: "Cat Chat", category: "社交通讯", icon: "chat", color: "#0078d4",
+        tagline: "一句话开始，让沟通保持简单与连续。",
+        description: "小猫聊天专注于即时消息与群组沟通，支持文字、表情和常用媒体内容分享，让一对一与多人交流更直接。",
+        features: [
+          { title: "即时消息", text: "与联系人进行连续的一对一文字交流。" },
+          { title: "群组沟通", text: "围绕家庭、朋友或共同任务建立多人会话。" },
+          { title: "媒体分享", text: "在聊天中发送图片等常用内容，补充文字表达。" }
+        ],
+        scenarios: ["朋友即时联系", "家庭与团队群聊", "图片与内容分享"],
+        fit: "需要轻量、直接的即时通讯工具的用户",
+        start: "添加联系人，从一条消息或一个群组开始交流。",
+        purpose: "即时消息、群聊与媒体内容分享"
+      },
+      teen: {
+        name: "小猫青少年门户", en: "Cat Teen Portal", category: "成长门户", icon: "access", color: "#008272",
+        tagline: "为青少年集中整理学习、兴趣与适龄内容。",
+        description: "小猫青少年门户面向青少年用户，聚合学习资源、兴趣内容与适龄服务入口，帮助使用者更有方向地探索数字世界。",
+        features: [
+          { title: "适龄内容", text: "按年龄与兴趣组织内容入口，减少无关信息干扰。" },
+          { title: "学习资源", text: "集中访问课程、知识与学习工具，支持日常探索。" },
+          { title: "兴趣发现", text: "从科技、艺术、运动等方向发现新的兴趣主题。" }
+        ],
+        scenarios: ["青少年学习探索", "兴趣内容发现", "适龄服务集中访问"],
+        fit: "希望获得清晰、适龄内容与学习入口的青少年用户",
+        start: "选择年龄与兴趣方向，再从推荐主题进入学习或探索。",
+        purpose: "青少年适龄内容、学习与兴趣入口"
+      },
+      photos: {
+        name: "小猫相册", en: "Cat Photos", category: "内容文档", icon: "image", color: "#0078d4",
+        tagline: "把照片整理好，把重要时刻留下来。",
+        description: "小猫相册用于浏览、整理和分享照片，通过时间、人物与主题分类帮助用户从大量图片中找回珍贵记忆。",
+        features: [
+          { title: "照片整理", text: "按照时间、主题与自定义相册组织图片。" },
+          { title: "回忆浏览", text: "以清晰的大图和时间线回看重要时刻。" },
+          { title: "相册分享", text: "选择照片或整本相册，与家人朋友共同回顾。" }
+        ],
+        scenarios: ["家庭照片整理", "旅行回忆浏览", "相册分享"],
+        fit: "需要集中管理、浏览和分享照片的用户",
+        start: "导入照片，先按时间浏览，再建立个人主题相册。",
+        purpose: "照片管理、回忆浏览与相册分享"
+      },
+      docs: {
+        name: "小猫文件与文档", en: "Cat Docs", category: "内容文档", icon: "document", color: "#455a64",
+        tagline: "文件各归其位，文档围绕任务继续推进。",
+        description: "小猫文件与文档将文件管理和文档处理放在统一入口，支持整理资料、编辑内容以及与他人的共享协作。",
+        features: [
+          { title: "文件管理", text: "通过文件夹、搜索和分类整理本地与云端资料。" },
+          { title: "文档编辑", text: "创建和修改常用文档，让内容围绕任务持续完善。" },
+          { title: "共享协作", text: "按需要分享文件或文档，集中查看相关内容。" }
+        ],
+        scenarios: ["学习与办公资料整理", "文档创建与修改", "文件共享协作"],
+        fit: "需要统一管理文件并处理文档的用户",
+        start: "整理常用文件夹，再从一个新文档或共享资料开始。",
+        purpose: "文件管理、文档处理与共享协作"
+      },
+      travel: {
+        name: "小猫出行", en: "Cat Travel", category: "生活探索", icon: "travel", color: "#008272",
+        tagline: "从出发到到达，把行程信息放在一起。",
+        description: "小猫出行用于查询路线、整理出行信息和收藏行程，让日常通勤与旅行计划拥有清楚统一的入口。",
+        features: [
+          { title: "路线规划", text: "围绕起点和终点查看可选路线与行程信息。" },
+          { title: "出行信息", text: "集中了解交通方式、换乘与沿途相关内容。" },
+          { title: "行程收藏", text: "保存常用地点和计划路线，方便下次继续查看。" }
+        ],
+        scenarios: ["日常通勤查询", "旅行路线规划", "常用地点与行程收藏"],
+        fit: "需要规划路线并集中管理出行信息的用户",
+        start: "输入起点与终点，比较路线后保存常用行程。",
+        purpose: "路线规划、出行信息与行程管理"
+      },
+      astro: {
+        name: "小猫天文", en: "Cat Astronomy", category: "生活探索", icon: "star", color: "#455a64",
+        tagline: "从一颗星开始，认识更大的宇宙。",
+        description: "小猫天文面向天文爱好者与学习者，提供星体知识、宇宙内容和观测入门信息，让探索星空更直观。",
+        features: [
+          { title: "星体探索", text: "浏览行星、恒星与深空天体的基础知识和特征。" },
+          { title: "天文知识", text: "通过主题内容理解宇宙结构与常见天文现象。" },
+          { title: "观测入门", text: "了解观测准备、基础方法和适合初学者的探索方向。" }
+        ],
+        scenarios: ["天文知识学习", "星体内容探索", "入门观测准备"],
+        fit: "对星空、宇宙与天文观测感兴趣的用户",
+        start: "选择一个天体主题，再从基础知识进入观测指南。",
+        purpose: "天文知识、星体探索与观测入门"
+      },
+      pay: {
+        name: "小猫支付", en: "Cat Pay", category: "商务服务", icon: "wallet", color: "#107c10",
+        tagline: "收付款与账单信息，清楚集中在同一处。",
+        description: "小猫支付定位于数字收付款和账单管理入口，围绕支付确认、交易记录与账户安全提供清晰的操作体验。",
+        features: [
+          { title: "收付款入口", text: "围绕常见收付款任务提供统一、明确的操作路径。" },
+          { title: "账单管理", text: "按时间与类型查看交易记录，方便核对和整理。" },
+          { title: "安全确认", text: "重要操作提供明确确认与结果反馈，减少误操作。" }
+        ],
+        scenarios: ["日常收付款", "交易记录查询", "账单分类与核对"],
+        fit: "需要集中管理数字支付与账单信息的用户",
+        start: "完成账户与安全设置，再从常用收付款入口开始。",
+        purpose: "数字收付款、账单管理与安全确认"
+      },
+      "3d-portal": {
+        name: "小猫3D门户", en: "Cat 3D Portal", category: "生活探索", icon: "cube", color: "#0078d4",
+        tagline: "用立体场景，打开内容的新入口。",
+        description: "小猫3D门户聚合三维场景与互动内容，通过统一的立体导航帮助用户浏览展示、学习和创意体验。",
+        features: [
+          { title: "三维场景入口", text: "以立体空间组织内容，让不同主题拥有可探索的入口。" },
+          { title: "场景导航", text: "通过旋转、缩放与视角切换理解场景结构。" },
+          { title: "互动展示", text: "把产品、知识与创意内容转化为可交互的三维体验。" }
+        ],
+        scenarios: ["三维内容浏览", "产品与空间展示", "互动知识探索"],
+        fit: "希望以三维方式展示或探索内容的用户",
+        start: "选择一个场景，使用视角控制熟悉导航，再进入具体内容。",
+        purpose: "三维场景导航与互动内容展示"
+      },
+      web: {
+        name: "小猫网页", en: "Cat Web", category: "应用开发", icon: "web", color: "#00a4ef",
+        tagline: "浏览、收藏与阅读网页，保持轻量直接。",
+        description: "小猫网页用于访问和整理网页内容，围绕标签页、收藏与阅读体验提供清晰的浏览入口。",
+        features: [
+          { title: "网页浏览", text: "通过地址与标签页访问不同网站和在线内容。" },
+          { title: "收藏管理", text: "保存常用网页并按主题整理，减少重复查找。" },
+          { title: "阅读体验", text: "聚焦正文与关键内容，降低页面干扰。" }
+        ],
+        scenarios: ["日常网页访问", "常用网站收藏", "长文与资料阅读"],
+        fit: "需要轻量浏览与整理网页内容的用户",
+        start: "打开常用网页，将高频内容加入收藏并整理标签页。",
+        purpose: "网页浏览、收藏与阅读管理"
+      },
+      cloud: {
+        name: "小猫云", en: "Cat Cloud", category: "云端服务", icon: "cloud", color: "#0078d4",
+        tagline: "把重要内容放在云端，在不同设备继续使用。",
+        description: "小猫云提供云端内容存储与管理入口，帮助用户在多台设备间访问文件、照片与个人资料。",
+        features: [
+          { title: "云端存储", text: "集中保存文件与内容，按文件夹和类型整理。" },
+          { title: "多设备访问", text: "在授权设备上查看同一份云端内容。" },
+          { title: "备份管理", text: "了解内容备份状态，减少重要资料丢失风险。" }
+        ],
+        scenarios: ["文件云端保存", "跨设备内容访问", "个人资料备份"],
+        fit: "需要在不同设备间保存和访问内容的用户",
+        start: "选择需要保存的内容，整理云端目录并确认备份状态。",
+        purpose: "云端存储、多设备访问与内容备份"
+      },
+      phone: {
+        name: "小猫电话", en: "Cat Phone", category: "社交通讯", icon: "phone", color: "#107c10",
+        tagline: "联系人、通话与记录，回归清楚的电话体验。",
+        description: "小猫电话专注于语音联系与通话管理，将联系人、拨号和通话记录整理在简单明确的界面中。",
+        features: [
+          { title: "语音通话", text: "通过联系人或拨号入口发起语音联系。" },
+          { title: "联系人管理", text: "整理常用联系人信息，快速找到需要联系的人。" },
+          { title: "通话记录", text: "按时间查看历史通话，方便回访与核对。" }
+        ],
+        scenarios: ["家庭语音联系", "常用联系人管理", "通话记录回访"],
+        fit: "需要清晰语音通话与联系人管理的用户",
+        start: "导入或添加联系人，将常用联系人放在显眼位置。",
+        purpose: "语音通话、联系人与通话记录管理"
+      },
+      sync: {
+        name: "小猫同步", en: "Cat Sync", category: "云端服务", icon: "compare", color: "#008272",
+        tagline: "换一台设备，也能接着熟悉的状态继续。",
+        description: "小猫同步用于在授权设备之间同步设置、内容与个人偏好，让不同设备保持一致的使用状态。",
+        features: [
+          { title: "设置同步", text: "同步个人偏好与常用配置，减少重复设置。" },
+          { title: "内容同步", text: "让指定文件、收藏与应用数据在设备间保持一致。" },
+          { title: "状态查看", text: "了解各设备的同步时间与结果，及时发现异常。" }
+        ],
+        scenarios: ["新设备初始化", "跨设备设置同步", "收藏与内容一致性管理"],
+        fit: "拥有多台设备并希望保持一致体验的用户",
+        start: "登录授权设备，选择需要同步的内容并检查状态。",
+        purpose: "跨设备设置、内容与状态同步"
+      },
+      share: {
+        name: "小猫分享", en: "Cat Share", category: "社交通讯", icon: "share", color: "#0078d4",
+        tagline: "从一个产品，把内容送到需要的地方。",
+        description: "小猫分享提供统一的内容分享入口，帮助用户把链接、图片与文件发送到联系人或其他小猫产品。",
+        features: [
+          { title: "统一分享入口", text: "从不同产品调用一致的分享面板，减少寻找功能的时间。" },
+          { title: "跨产品发送", text: "把内容发送到聊天、社交、文档等对应场景。" },
+          { title: "权限选择", text: "在分享前确认接收对象与内容范围。" }
+        ],
+        scenarios: ["链接与图片分享", "文件跨产品发送", "联系人内容分发"],
+        fit: "需要跨应用快速分享内容的用户",
+        start: "选择内容与接收对象，确认范围后完成分享。",
+        purpose: "跨产品内容分享与接收对象管理"
+      },
+      suite: {
+        name: "小猫软件整合包", en: "Cat Suite", category: "云端服务", icon: "package", color: "#455a64",
+        tagline: "常用软件一次整理，统一部署与管理。",
+        description: "小猫软件整合包将常用小猫软件与工具组合成统一清单，便于集中了解、部署和维护一整套数字工具。",
+        features: [
+          { title: "软件组合", text: "按使用场景整理常用软件，形成清晰的组合清单。" },
+          { title: "统一部署", text: "从同一入口查看并安排组合内软件的部署。" },
+          { title: "版本管理", text: "集中了解组合内软件的版本与更新状态。" }
+        ],
+        scenarios: ["新设备软件配置", "家庭或团队工具部署", "软件版本统一维护"],
+        fit: "需要一次配置和管理多款软件的用户与团队",
+        start: "选择适合场景的组合，确认软件清单与版本后再部署。",
+        purpose: "软件组合、统一部署与版本管理"
+      },
+      input: {
+        name: "小猫输入法", en: "Cat Input", category: "内容文档", icon: "keyboard", color: "#008272",
+        tagline: "让每一次输入，都更贴近自己的表达习惯。",
+        description: "小猫输入法面向日常中文输入，提供拼音输入、词语联想和个性化设置，让文字表达更加顺畅。",
+        features: [
+          { title: "中文输入", text: "支持常见拼音输入方式，覆盖聊天、学习与办公场景。" },
+          { title: "词语联想", text: "根据输入上下文提供候选词，减少重复击键。" },
+          { title: "个性设置", text: "调整词库、候选与界面偏好，形成个人输入习惯。" }
+        ],
+        scenarios: ["日常中文聊天", "学习与办公写作", "个人词库整理"],
+        fit: "希望提升中文输入效率并自定义体验的用户",
+        start: "选择习惯的输入方式，再调整个性词库与候选设置。",
+        purpose: "中文输入、词语联想与个性化词库"
+      },
+      kitchen: {
+        name: "小猫厨房", en: "Cat Kitchen", category: "生活探索", icon: "kitchen", color: "#d83b01",
+        tagline: "从想吃的一道菜，到清楚可做的每一步。",
+        description: "小猫厨房用于发现菜谱、准备食材和查看烹饪步骤，让日常做饭与美食学习更有条理。",
+        features: [
+          { title: "菜谱发现", text: "按食材、口味与用餐场景寻找合适的菜谱。" },
+          { title: "步骤指导", text: "把准备与烹饪过程拆成清楚步骤，方便跟随。" },
+          { title: "食材清单", text: "整理所需食材与用量，辅助采购和备菜。" }
+        ],
+        scenarios: ["日常家常菜准备", "新菜谱学习", "食材采购与备菜"],
+        fit: "需要菜谱灵感、步骤指导和食材整理的用户",
+        start: "选择现有食材或想吃的菜，查看步骤并生成准备清单。",
+        purpose: "菜谱发现、烹饪步骤与食材清单"
+      },
+      video: {
+        name: "小猫视频", en: "Cat Video", category: "内容文档", icon: "play", color: "#d83b01",
+        tagline: "想看的视频，按自己的节奏播放与整理。",
+        description: "小猫视频用于浏览、播放和收藏视频内容，通过播放列表与分类整理让观看体验更加连续。",
+        features: [
+          { title: "视频浏览", text: "按分类与主题发现感兴趣的视频内容。" },
+          { title: "连续播放", text: "使用播放列表组织内容，按个人节奏观看。" },
+          { title: "收藏稍后再看", text: "保存想看的内容，方便之后继续查找与播放。" }
+        ],
+        scenarios: ["日常视频观看", "学习视频播放", "收藏与播放列表整理"],
+        fit: "需要集中浏览、播放和整理视频内容的用户",
+        start: "从兴趣分类开始，把想看的内容加入收藏或播放列表。",
+        purpose: "视频浏览、播放与收藏整理"
+      },
+      kids: {
+        name: "小猫儿童", en: "Cat Kids", category: "成长门户", icon: "cat", color: "#00a4ef",
+        tagline: "给孩子适龄内容，也给家长清楚的守护入口。",
+        description: "小猫儿童面向儿童与家庭，聚合适龄学习、互动内容和亲子体验，并提供便于家长理解的使用守护设置。",
+        features: [
+          { title: "适龄内容", text: "按照儿童年龄与兴趣组织学习和娱乐内容。" },
+          { title: "亲子互动", text: "通过共同阅读、探索和小任务增加家庭参与。" },
+          { title: "使用守护", text: "围绕内容范围与使用时长提供清楚的家庭设置。" }
+        ],
+        scenarios: ["儿童适龄学习", "亲子互动探索", "家庭使用规则管理"],
+        fit: "需要适龄内容与家庭守护功能的儿童及其家长",
+        start: "由家长选择年龄与内容范围，再从亲子主题开始体验。",
+        purpose: "儿童适龄内容、亲子互动与使用守护"
+      },
+      college: {
+        name: "小猫大学生门户", en: "Cat Campus", category: "成长门户", icon: "book", color: "#107c10",
+        tagline: "课程、校园信息与个人成长，集中从这里开始。",
+        description: "小猫大学生门户面向高校学生，整合学习工具、校园信息、社团兴趣与个人发展资源，减少在不同平台间查找的时间。",
+        features: [
+          { title: "学习入口", text: "集中整理课程资料、学习工具与常用学术资源。" },
+          { title: "校园信息", text: "查看校园通知、活动与服务入口，了解身边信息。" },
+          { title: "成长资源", text: "发现社团、实践与职业发展内容，规划个人成长。" }
+        ],
+        scenarios: ["课程与学习资料访问", "校园活动查询", "社团实践与发展规划"],
+        fit: "希望集中管理学习、校园信息与发展资源的大学生",
+        start: "选择学校与个人兴趣，整理课程和常用校园服务入口。",
+        purpose: "大学生学习、校园信息与成长资源入口"
+      },
+      music: {
+        name: "小猫音乐", en: "Cat Music", category: "影音娱乐", icon: "music", color: "#008272",
+        tagline: "发现喜欢的声音，整理自己的播放清单。",
+        description: "小猫音乐用于发现、播放和收藏音乐，通过歌单与分类整理让日常聆听更加连续。",
+        features: [
+          { title: "音乐发现", text: "按风格、场景与主题浏览音乐内容。" },
+          { title: "播放列表", text: "把喜欢的歌曲组织成适合不同场景的播放清单。" },
+          { title: "收藏管理", text: "保存常听歌曲与专辑，方便之后继续聆听。" }
+        ],
+        scenarios: ["日常音乐聆听", "歌单整理", "音乐收藏与发现"],
+        fit: "需要集中发现、播放和整理音乐的用户",
+        start: "选择喜欢的音乐主题，创建第一份个人播放列表。",
+        purpose: "音乐发现、播放与收藏管理"
+      },
+      sms: {
+        name: "小猫短信", en: "Cat Messages", category: "社交通讯", icon: "chat", color: "#0078d4",
+        tagline: "重要短信与服务通知，清楚归档。",
+        description: "小猫短信用于查看和整理文字短信与服务通知，通过联系人会话和分类管理减少无关信息干扰。",
+        features: [
+          { title: "联系人文本会话", text: "按联系人整理短信往来，保持对话连续。" },
+          { title: "通知分类", text: "区分个人消息与服务通知，快速找到重要内容。" },
+          { title: "短信搜索", text: "通过联系人和关键词查找历史短信。" }
+        ],
+        scenarios: ["个人短信收发", "服务通知整理", "历史消息查找"],
+        fit: "需要清晰管理短信与服务通知的用户",
+        start: "整理常用联系人，再为服务通知设置分类方式。",
+        purpose: "短信会话、通知分类与历史查找"
+      },
+      family: {
+        name: "小猫家庭", en: "Cat Family", category: "生活探索", icon: "users", color: "#00a4ef",
+        tagline: "把家人、共享内容与家庭安排放在一起。",
+        description: "小猫家庭面向家庭成员提供共享空间，集中整理家庭联系人、照片、日程与常用服务入口。",
+        features: [
+          { title: "家庭成员空间", text: "邀请家人进入共享空间，集中管理家庭联系。" },
+          { title: "内容共享", text: "分享照片、文件与重要信息，减少重复发送。" },
+          { title: "家庭安排", text: "围绕日程和待办协调家庭事务。" }
+        ],
+        scenarios: ["家庭成员联系", "照片与文件共享", "家庭日程协调"],
+        fit: "希望集中管理家庭共享内容与事务的用户",
+        start: "创建家庭空间，邀请成员并添加第一项共享内容。",
+        purpose: "家庭联系、内容共享与事务协调"
+      },
+      translate: {
+        name: "小猫翻译", en: "Cat Translate", category: "内容文档", icon: "translate", color: "#0078d4",
+        tagline: "从一句话开始，让不同语言更容易理解。",
+        description: "小猫翻译用于文本翻译与双语对照，帮助用户在学习、旅行和日常沟通中理解不同语言的内容。",
+        features: [
+          { title: "文本翻译", text: "输入或粘贴文字，查看目标语言表达。" },
+          { title: "双语对照", text: "并排查看原文与译文，方便理解和核对。" },
+          { title: "常用表达", text: "收藏常用短语，适合学习与出行时快速查看。" }
+        ],
+        scenarios: ["外语学习", "旅行沟通", "日常文本理解"],
+        fit: "需要文本翻译与双语对照的用户",
+        start: "选择源语言与目标语言，从一段短文本开始翻译。",
+        purpose: "文本翻译、双语对照与常用表达管理"
+      },
+      finance: {
+        name: "小猫财经", en: "Cat Finance", category: "商务服务", icon: "chart", color: "#107c10",
+        tagline: "把财经信息与关注内容整理得更清楚。",
+        description: "小猫财经用于浏览财经资讯、关注市场信息和整理个人关注清单，帮助用户集中了解财经内容。",
+        features: [
+          { title: "财经资讯", text: "按主题浏览市场、行业与公司相关资讯。" },
+          { title: "行情关注", text: "将关心的市场信息加入关注清单，集中查看变化。" },
+          { title: "数据整理", text: "用清晰的列表和图表辅助理解公开财经数据。" }
+        ],
+        scenarios: ["财经新闻浏览", "市场信息关注", "行业数据整理"],
+        fit: "需要集中查看财经资讯与公开市场信息的用户",
+        start: "选择关注的行业或市场主题，建立个人财经清单。",
+        purpose: "财经资讯、市场关注与数据整理"
+      },
+      tv: {
+        name: "小猫电视", en: "Cat TV", category: "影音娱乐", icon: "tv", color: "#455a64",
+        tagline: "频道、节目与观看清单，统一在大屏呈现。",
+        description: "小猫电视面向大屏观看场景，集中整理频道、节目与个人收藏，让家庭娱乐入口更加清晰。",
+        features: [
+          { title: "频道浏览", text: "按分类查看频道和当前节目内容。" },
+          { title: "节目发现", text: "通过主题推荐找到适合观看的节目。" },
+          { title: "观看清单", text: "收藏想看的内容，方便下次继续播放。" }
+        ],
+        scenarios: ["家庭大屏娱乐", "频道与节目浏览", "个人观看清单整理"],
+        fit: "需要在大屏上集中浏览和管理电视内容的用户",
+        start: "选择感兴趣的频道分类，把节目加入观看清单。",
+        purpose: "电视频道、节目发现与观看清单"
+      },
+      "sport-watch": {
+        name: "小猫运动手表", en: "Cat Sport Watch", category: "生活探索", icon: "watch", color: "#d83b01",
+        tagline: "把运动目标与每日记录戴在腕上。",
+        description: "小猫运动手表定位于运动记录与日常健康管理入口，帮助用户查看活动数据、设定目标并回顾运动趋势。",
+        features: [
+          { title: "运动记录", text: "记录常见运动类型与活动数据，形成个人日志。" },
+          { title: "目标激励", text: "设置阶段目标并查看完成进度。" },
+          { title: "趋势回顾", text: "通过周月视图了解运动记录的变化。" }
+        ],
+        scenarios: ["日常运动记录", "阶段目标管理", "个人活动趋势回顾"],
+        fit: "希望通过手表记录运动并管理目标的用户",
+        start: "选择常用运动类型，设置一个可完成的阶段目标。",
+        purpose: "运动记录、目标管理与趋势回顾"
+      },
+      "kids-watch": {
+        name: "小猫儿童手表", en: "Cat Kids Watch", category: "成长门户", icon: "watch", color: "#00a4ef",
+        tagline: "让孩子方便联系家人，让家长清楚管理使用。",
+        description: "小猫儿童手表面向儿童与家庭，提供亲情联系、日常记录与使用管理入口，强调简单操作和家庭共同设置。",
+        features: [
+          { title: "亲情联系", text: "将常用家庭联系人放在容易找到的位置。" },
+          { title: "日常记录", text: "查看基础活动与使用记录，了解日常情况。" },
+          { title: "家庭管理", text: "由家长协助设置可用功能与使用规则。" }
+        ],
+        scenarios: ["儿童亲情通话", "日常活动记录", "家庭使用规则设置"],
+        fit: "需要儿童便捷联系与家庭共同管理功能的用户",
+        start: "由家长完成初始设置，添加家庭联系人并选择可用功能。",
+        purpose: "儿童亲情联系、日常记录与家庭管理"
+      },
+      charity: {
+        name: "小猫公益", en: "Cat Charity", category: "生活探索", icon: "heart", color: "#107c10",
+        tagline: "了解公益行动，也记录每一次参与。",
+        description: "小猫公益用于浏览公益项目、参与志愿活动和整理公益记录，让善意行动拥有清晰可查的入口。",
+        features: [
+          { title: "公益项目", text: "按主题了解教育、环保与社区等公益内容。" },
+          { title: "活动参与", text: "查看活动信息并记录个人参与情况。" },
+          { title: "进展公开", text: "集中展示项目说明与阶段进展，方便持续了解。" }
+        ],
+        scenarios: ["公益项目了解", "志愿活动参与", "个人公益记录整理"],
+        fit: "希望发现并持续参与公益行动的用户",
+        start: "选择关心的公益主题，从一次活动或项目了解开始。",
+        purpose: "公益项目发现、活动参与与记录管理"
+      },
+      calendar: {
+        name: "小猫日历", en: "Cat Calendar", category: "效率协作", icon: "calendar", color: "#0078d4",
+        tagline: "把今天、下周与重要安排看得更清楚。",
+        description: "小猫日历用于创建日程、设置提醒和协调共享安排，帮助用户管理个人与团队时间。",
+        features: [
+          { title: "日程创建", text: "记录时间、地点和相关说明，形成清晰安排。" },
+          { title: "提醒管理", text: "为重要日程设置提醒，减少遗漏。" },
+          { title: "共享日历", text: "与家人或团队协调共同安排。" }
+        ],
+        scenarios: ["个人日程管理", "会议与活动提醒", "家庭团队共享安排"],
+        fit: "需要集中管理日程与提醒的用户",
+        start: "创建今天的第一项日程，再设置合适的提醒时间。",
+        purpose: "日程、提醒与共享时间管理"
+      },
+      plugins: {
+        name: "小猫插件", en: "Cat Plugins", category: "应用开发", icon: "plugin", color: "#455a64",
+        tagline: "用小型扩展，为常用产品增加需要的能力。",
+        description: "小猫插件用于发现和管理功能扩展，让用户按任务为小猫产品添加工具，并保持启用状态清晰可控。",
+        features: [
+          { title: "插件发现", text: "按用途浏览可用扩展，了解功能与适用产品。" },
+          { title: "功能扩展", text: "为现有产品补充快捷操作与专项能力。" },
+          { title: "启用管理", text: "集中查看已安装插件，按需启用或停用。" }
+        ],
+        scenarios: ["产品功能扩展", "效率插件发现", "已安装扩展管理"],
+        fit: "希望通过插件定制产品功能的用户",
+        start: "从当前任务出发选择插件，确认适用产品后再启用。",
+        purpose: "插件发现、功能扩展与启用管理"
+      },
+      desktop: {
+        name: "小猫桌面工具", en: "Cat Desktop Tools", category: "效率协作", icon: "os", color: "#0078d4",
+        tagline: "让常用信息和小工具，在桌面随手可得。",
+        description: "小猫桌面工具将时钟、便签、天气与快捷入口等小组件集中到桌面，减少频繁打开应用的需要。",
+        features: [
+          { title: "桌面小组件", text: "把常用信息与轻量工具放在桌面合适位置。" },
+          { title: "快捷入口", text: "快速访问常用文件、应用与系统功能。" },
+          { title: "布局整理", text: "调整组件位置和显示方式，保持桌面清晰。" }
+        ],
+        scenarios: ["桌面信息查看", "常用功能快速访问", "个人工作区整理"],
+        fit: "希望提升桌面信息获取与操作效率的用户",
+        start: "选择一个常用组件，调整位置并整理快捷入口。",
+        purpose: "桌面组件、快捷入口与工作区整理"
+      },
+      notes: {
+        name: "小猫笔记", en: "Cat Notes", category: "效率协作", icon: "document", color: "#008272",
+        tagline: "及时记录想法，也能在需要时快速找回。",
+        description: "小猫笔记用于文字记录、资料摘抄与想法整理，通过笔记本和标签让零散内容形成清晰结构。",
+        features: [
+          { title: "快速记录", text: "用文字和清单及时保存想法与待办。" },
+          { title: "标签整理", text: "通过笔记本和标签分类不同主题的内容。" },
+          { title: "搜索回顾", text: "按关键词查找历史笔记，继续补充与修改。" }
+        ],
+        scenarios: ["学习笔记", "会议与灵感记录", "个人资料整理"],
+        fit: "需要随时记录并系统整理文字内容的用户",
+        start: "建立一个主题笔记本，记录第一条内容并添加标签。",
+        purpose: "文字记录、标签整理与笔记搜索"
+      },
+      whiteboard: {
+        name: "小猫白板", en: "Cat Whiteboard", category: "效率协作", icon: "pen", color: "#00a4ef",
+        tagline: "把讨论过程写下来、画出来、连起来。",
+        description: "小猫白板提供自由书写、图形和便签工具，适合头脑风暴、讲解演示与团队共同讨论。",
+        features: [
+          { title: "自由书写", text: "用画笔和文本快速记录讨论中的想法。" },
+          { title: "图形便签", text: "通过形状、连线与便签组织逻辑关系。" },
+          { title: "共同讨论", text: "围绕同一块白板展示思路并收集反馈。" }
+        ],
+        scenarios: ["团队头脑风暴", "课程内容讲解", "流程与关系梳理"],
+        fit: "需要可视化表达与共同讨论的用户和团队",
+        start: "新建一块白板，用便签收集想法，再用连线整理关系。",
+        purpose: "可视化书写、想法整理与共同讨论"
+      },
+      collaborate: {
+        name: "小猫协作", en: "Cat Collaborate", category: "效率协作", icon: "users", color: "#0078d4",
+        tagline: "围绕同一个目标，让团队任务连续推进。",
+        description: "小猫协作面向团队项目与共同任务，集中整理成员、文件、讨论和进度信息。",
+        features: [
+          { title: "共享工作区", text: "把项目资料与相关讨论放在统一空间。" },
+          { title: "任务分工", text: "明确负责人、任务状态与下一步行动。" },
+          { title: "进度跟踪", text: "通过列表和状态视图了解项目推进情况。" }
+        ],
+        scenarios: ["团队项目协作", "任务分工与跟进", "共享资料与讨论"],
+        fit: "需要围绕项目协调成员、任务与资料的团队",
+        start: "创建项目工作区，邀请成员并拆分第一批任务。",
+        purpose: "团队工作区、任务分工与进度管理"
+      },
+      classroom: {
+        name: "小猫教室", en: "Cat Classroom", category: "成长门户", icon: "book", color: "#107c10",
+        tagline: "把课程内容、课堂互动与学习任务连在一起。",
+        description: "小猫教室面向教学与学习场景，集中整理课程内容、课堂互动、作业任务与学习反馈。",
+        features: [
+          { title: "课程内容", text: "按课程组织讲义、资料与学习入口。" },
+          { title: "课堂互动", text: "通过问答和互动任务增加课堂参与。" },
+          { title: "学习任务", text: "布置、提交并回顾作业与阶段学习反馈。" }
+        ],
+        scenarios: ["在线课堂学习", "课程资料整理", "作业与反馈管理"],
+        fit: "需要组织课程内容与学习任务的学生和教师",
+        start: "创建或加入一门课程，查看资料并进入第一项学习任务。",
+        purpose: "课程内容、课堂互动与学习任务管理"
+      },
+      plus: {
+        name: "小猫+", en: "Cat Plus", category: "云端服务", icon: "plus", color: "#d83b01",
+        tagline: "为常用产品连接更多增强功能与扩展体验。",
+        description: "小猫+聚合小猫产品中的增强功能与附加服务，通过统一入口查看可用内容并管理启用状态。",
+        features: [
+          { title: "增强功能", text: "集中了解各产品可启用的附加能力。" },
+          { title: "扩展内容", text: "发现与常用产品相关的扩展内容和服务。" },
+          { title: "统一管理", text: "查看已启用项目，按需要调整使用状态。" }
+        ],
+        scenarios: ["产品增强功能发现", "扩展内容管理", "附加服务统一查看"],
+        fit: "希望扩展小猫产品功能与体验的用户",
+        start: "选择正在使用的产品，查看可用增强功能并按需启用。",
+        purpose: "产品增强功能与附加服务入口"
+      },
+      analytics: {
+        name: "小猫分析", en: "Cat Analytics", category: "商务服务", icon: "chart", color: "#455a64",
+        tagline: "把分散数据变成可以阅读与比较的视图。",
+        description: "小猫分析用于整理业务与个人数据，通过指标、图表和对比视图帮助用户理解变化并发现问题。",
+        features: [
+          { title: "数据整理", text: "将分散数据按统一字段与口径组织。" },
+          { title: "指标看板", text: "把关键指标放在清晰的可视化界面中。" },
+          { title: "趋势比较", text: "通过时间与分组比较识别数据变化。" }
+        ],
+        scenarios: ["业务数据分析", "关键指标监控", "时间与分组趋势比较"],
+        fit: "需要整理数据并持续观察指标变化的用户与团队",
+        start: "确认数据来源与统计口径，再选择最重要的指标建立视图。",
+        purpose: "数据整理、指标看板与趋势比较"
+      },
+      "vr-portal": {
+        name: "小猫VR门户", en: "Cat VR Portal", category: "生活探索", icon: "cube", color: "#0078d4",
+        tagline: "从统一入口，进入沉浸式内容与虚拟场景。",
+        description: "小猫VR门户聚合虚拟现实内容与体验入口，帮助用户发现沉浸场景并了解设备与使用准备。",
+        features: [
+          { title: "VR内容发现", text: "按主题浏览虚拟场景和沉浸式内容。" },
+          { title: "场景体验", text: "进入可交互的虚拟空间，探索不同内容。" },
+          { title: "使用指引", text: "了解设备准备、基础操作与舒适使用建议。" }
+        ],
+        scenarios: ["VR内容浏览", "虚拟场景探索", "设备使用准备"],
+        fit: "希望发现与体验虚拟现实内容的用户",
+        start: "查看设备与使用准备，再从推荐的轻量场景开始。",
+        purpose: "VR内容发现、场景体验与使用指引"
+      },
+      mobile: {
+        name: "小猫移动服务", en: "Cat Mobile Services", category: "云端服务", icon: "phone", color: "#008272",
+        tagline: "把移动设备相关服务与状态集中管理。",
+        description: "小猫移动服务面向手机与移动设备用户，集中提供服务入口、设备连接与状态查看，让移动体验更容易管理。",
+        features: [
+          { title: "移动服务入口", text: "集中访问常用移动端服务与工具。" },
+          { title: "设备连接", text: "查看已连接设备与相关服务状态。" },
+          { title: "状态管理", text: "了解同步、连接和可用服务的当前情况。" }
+        ],
+        scenarios: ["移动设备服务管理", "多设备连接查看", "移动同步状态检查"],
+        fit: "需要统一管理移动设备与相关服务的用户",
+        start: "添加常用移动设备，确认连接状态并整理服务入口。",
+        purpose: "移动服务、设备连接与状态管理"
+      },
+      contract: {
+        name: "小猫合同", en: "Cat Contracts", category: "商务服务", icon: "document", color: "#455a64",
+        tagline: "从起草到归档，让合同流程清楚可追踪。",
+        description: "小猫合同用于组织合同起草、审阅、签署进度与归档资料，帮助个人和团队集中管理合同相关事项。",
+        features: [
+          { title: "合同起草", text: "围绕合同类型整理正文、关键条款与相关附件。" },
+          { title: "审阅协作", text: "集中记录修改意见与版本变化，方便相关人员核对。" },
+          { title: "进度与归档", text: "跟踪确认和签署进度，并分类保存已完成合同。" }
+        ],
+        scenarios: ["合同起草与修改", "多方审阅与版本核对", "合同签署进度及归档管理"],
+        fit: "需要集中处理合同文本、审阅流程与归档资料的用户和团队",
+        start: "选择合同类型，完善正文与附件，再邀请相关人员审阅。",
+        purpose: "合同起草、审阅协作与进度归档"
+      },
+      security: {
+        name: "小猫安全", en: "Cat Security", category: "安全隐私", icon: "shield", color: "#455a64",
+        tagline: "把设备防护、风险提醒与安全状态集中起来。",
+        description: "小猫安全用于查看设备安全状态、了解风险提醒并管理常用防护设置，让日常数字使用更安心。",
+        features: [
+          { title: "安全状态", text: "集中查看设备防护项目与当前状态。" },
+          { title: "风险提醒", text: "对需要关注的安全事件提供清晰提示。" },
+          { title: "防护设置", text: "按使用场景管理常用安全选项。" }
+        ],
+        scenarios: ["设备安全检查", "风险事件了解", "日常防护设置"],
+        fit: "希望集中管理设备安全与风险提醒的用户",
+        start: "查看当前安全状态，先处理需要关注的风险项目。",
+        purpose: "设备安全状态、风险提醒与防护管理"
+      },
+      privacy: {
+        name: "小猫隐私", en: "Cat Privacy", category: "安全隐私", icon: "lock", color: "#0078d4",
+        tagline: "看清权限与数据使用，让隐私选择更容易理解。",
+        description: "小猫隐私用于集中查看应用权限、数据使用说明与个性化隐私设置，帮助用户理解并管理个人信息。",
+        features: [
+          { title: "权限总览", text: "按应用和权限类型查看当前授权情况。" },
+          { title: "数据说明", text: "用清晰语言解释数据用途与保存范围。" },
+          { title: "隐私选择", text: "根据需要调整授权与个性化选项。" }
+        ],
+        scenarios: ["应用权限检查", "个人信息管理", "隐私设置调整"],
+        fit: "希望理解并控制应用权限与个人数据的用户",
+        start: "先查看权限总览，再逐项确认不必要的授权。",
+        purpose: "权限总览、数据说明与隐私设置"
+      },
+      parental: {
+        name: "小猫家长守护", en: "Cat Family Safety", category: "安全隐私", icon: "access", color: "#00a4ef",
+        tagline: "用清楚的规则，陪伴未成年人健康使用数字产品。",
+        description: "小猫家长守护面向家庭，提供使用时长、内容范围与应用规则设置，帮助家长与未成年人共同建立健康使用习惯。",
+        features: [
+          { title: "使用时长", text: "按日期与场景设置可使用时段和时长。" },
+          { title: "内容范围", text: "根据年龄选择适合的内容与应用范围。" },
+          { title: "家庭反馈", text: "以简明记录帮助家庭成员了解规则执行情况。" }
+        ],
+        scenarios: ["未成年人使用管理", "家庭内容规则设置", "健康使用习惯培养"],
+        fit: "需要共同管理未成年人数字使用规则的家庭",
+        start: "与孩子一起确认使用规则，再设置时长和内容范围。",
+        purpose: "家庭使用规则、内容范围与时长管理"
+      },
+      health: {
+        name: "小猫健康", en: "Cat Health", category: "健康运动", icon: "heart", color: "#107c10",
+        tagline: "把日常健康记录与生活习惯集中整理。",
+        description: "小猫健康用于记录日常活动、身体状态与健康习惯，通过清晰趋势帮助用户了解个人生活方式。",
+        features: [
+          { title: "日常记录", text: "集中保存活动、饮食与身体状态等个人记录。" },
+          { title: "习惯管理", text: "围绕饮水、作息与活动建立日常目标。" },
+          { title: "趋势查看", text: "通过周期视图回顾个人记录变化。" }
+        ],
+        scenarios: ["健康习惯记录", "日常目标管理", "个人趋势回顾"],
+        fit: "希望整理日常健康记录与生活习惯的用户",
+        start: "选择一项最关注的日常习惯，从连续记录开始。",
+        purpose: "健康记录、习惯管理与趋势查看"
+      },
+      sleep: {
+        name: "小猫睡眠", en: "Cat Sleep", category: "健康运动", icon: "moon", color: "#455a64",
+        tagline: "记录作息节奏，为每晚休息留出空间。",
+        description: "小猫睡眠用于记录睡眠时间、整理作息目标并提供放松内容入口，帮助用户关注日常休息规律。",
+        features: [
+          { title: "睡眠记录", text: "保存入睡、起床与主观休息感受。" },
+          { title: "作息目标", text: "设置适合自己的睡眠时间与提醒。" },
+          { title: "放松内容", text: "集中访问轻音乐与睡前放松内容。" }
+        ],
+        scenarios: ["睡眠时间记录", "作息提醒", "睡前放松"],
+        fit: "希望了解并改善日常作息规律的用户",
+        start: "先记录一周的睡眠时间，再设置合适的作息目标。",
+        purpose: "睡眠记录、作息目标与放松内容"
+      },
+      fitness: {
+        name: "小猫运动", en: "Cat Fitness", category: "健康运动", icon: "watch", color: "#d83b01",
+        tagline: "从一次活动开始，持续看见自己的运动进步。",
+        description: "小猫运动用于记录训练、设置运动计划和回顾活动趋势，让日常锻炼更有目标与反馈。",
+        features: [
+          { title: "训练记录", text: "保存运动类型、时长与个人完成情况。" },
+          { title: "计划目标", text: "按周设置适合当前状态的运动计划。" },
+          { title: "进步回顾", text: "通过趋势与里程碑查看持续变化。" }
+        ],
+        scenarios: ["日常锻炼记录", "周运动计划", "训练趋势回顾"],
+        fit: "希望持续记录并规划个人运动的用户",
+        start: "选择常见运动类型，制定一份可执行的周计划。",
+        purpose: "训练记录、运动计划与进步回顾"
+      },
+      medical: {
+        name: "小猫医疗", en: "Cat Medical", category: "健康运动", icon: "plus", color: "#0078d4",
+        tagline: "整理就医信息与健康资料，减少反复查找。",
+        description: "小猫医疗定位于就医信息和个人健康资料管理入口，帮助用户整理预约、报告与常用医疗信息。",
+        features: [
+          { title: "预约信息", text: "集中整理就诊时间与相关注意事项。" },
+          { title: "健康资料", text: "分类保存个人报告与就医文件。" },
+          { title: "就医提醒", text: "为复诊、检查与资料准备设置提醒。" }
+        ],
+        scenarios: ["就医预约整理", "个人报告归档", "复诊与检查提醒"],
+        fit: "需要集中管理就医安排与健康资料的用户",
+        start: "建立个人资料分类，再添加下一次就医安排。",
+        purpose: "就医信息、健康资料与提醒管理"
+      },
+      mind: {
+        name: "小猫心理", en: "Cat Mind", category: "健康运动", icon: "chat", color: "#008272",
+        tagline: "记录情绪与感受，为日常心理状态留出关注。",
+        description: "小猫心理用于情绪记录、心理知识阅读和放松练习，帮助用户以更温和的方式关注日常心理状态。",
+        features: [
+          { title: "情绪记录", text: "用简单标签与文字保存每日感受。" },
+          { title: "知识阅读", text: "浏览情绪管理与心理健康科普内容。" },
+          { title: "放松练习", text: "通过呼吸与短暂练习安排放松时间。" }
+        ],
+        scenarios: ["每日情绪记录", "心理知识学习", "日常放松练习"],
+        fit: "希望关注情绪变化并了解心理知识的用户",
+        start: "记录今天的感受，再选择一项短时放松练习。",
+        purpose: "情绪记录、心理知识与放松练习"
+      },
+      smarthome: {
+        name: "小猫智能家居", en: "Cat Smart Home", category: "智能生活", icon: "home", color: "#0078d4",
+        tagline: "把家庭设备与场景联动放在一个入口。",
+        description: "小猫智能家居用于连接、分组和控制家庭智能设备，通过房间与场景管理简化日常操作。",
+        features: [
+          { title: "设备分组", text: "按照房间与用途整理家庭智能设备。" },
+          { title: "场景控制", text: "用一个场景联动多项常用设备操作。" },
+          { title: "状态查看", text: "集中了解设备在线与运行状态。" }
+        ],
+        scenarios: ["家庭设备控制", "房间分组管理", "回家与睡眠场景联动"],
+        fit: "需要统一管理家庭智能设备的用户",
+        start: "添加一个房间和常用设备，再创建第一条场景。",
+        purpose: "智能设备分组、场景联动与状态管理"
+      },
+      lighting: {
+        name: "小猫智能灯光", en: "Cat Lighting", category: "智能生活", icon: "sun", color: "#d83b01",
+        tagline: "让光线跟随时间、房间与生活场景变化。",
+        description: "小猫智能灯光用于管理灯具、亮度和照明场景，让家庭与工作空间拥有更合适的灯光氛围。",
+        features: [
+          { title: "灯具控制", text: "集中调整已连接灯具的开关与亮度。" },
+          { title: "照明场景", text: "保存阅读、休息与聚会等常用灯光组合。" },
+          { title: "定时安排", text: "按照日常作息设置自动照明时间。" }
+        ],
+        scenarios: ["家庭灯光控制", "阅读与休息场景", "定时照明"],
+        fit: "需要集中管理智能灯具与照明场景的用户",
+        start: "添加常用灯具，保存一组适合晚上的照明场景。",
+        purpose: "智能灯光控制、场景与定时管理"
+      },
+      doorlock: {
+        name: "小猫智能门锁", en: "Cat Smart Lock", category: "智能生活", icon: "lock", color: "#455a64",
+        tagline: "家门状态与成员权限，清楚掌握。",
+        description: "小猫智能门锁用于查看门锁状态、管理家庭成员开锁权限与接收必要提醒。",
+        features: [
+          { title: "门锁状态", text: "查看已连接门锁的当前状态与必要提示。" },
+          { title: "成员权限", text: "按家庭成员分配和调整使用权限。" },
+          { title: "记录提醒", text: "集中查看开锁记录与异常提醒。" }
+        ],
+        scenarios: ["家庭门锁管理", "成员权限分配", "开锁记录查看"],
+        fit: "需要管理家庭智能门锁与成员权限的用户",
+        start: "完成设备连接，先添加家庭成员并确认权限。",
+        purpose: "门锁状态、成员权限与记录提醒"
+      },
+      car: {
+        name: "小猫车载", en: "Cat Auto", category: "智能生活", icon: "travel", color: "#0078d4",
+        tagline: "把导航、音乐与车辆信息带进驾驶场景。",
+        description: "小猫车载面向车内使用场景，整合导航、媒体、车辆信息与简洁语音入口，减少驾驶中的复杂操作。",
+        features: [
+          { title: "车载导航", text: "以大界面呈现路线与关键导航信息。" },
+          { title: "媒体控制", text: "集中管理车内音乐与音频内容。" },
+          { title: "车辆信息", text: "查看已连接车辆提供的基础状态信息。" }
+        ],
+        scenarios: ["车内导航", "驾驶媒体控制", "车辆状态查看"],
+        fit: "希望在驾驶场景中使用简洁整合入口的用户",
+        start: "连接车辆，整理常用导航与媒体入口。",
+        purpose: "车载导航、媒体与车辆信息整合"
+      },
+      navigation: {
+        name: "小猫导航", en: "Cat Navigation", category: "智能生活", icon: "travel", color: "#008272",
+        tagline: "专注路线与方向，让每一次到达更清楚。",
+        description: "小猫导航用于路线规划、实时方向查看和常用地点管理，服务步行、骑行与驾车等出行场景。",
+        features: [
+          { title: "路线导航", text: "根据出行方式查看路线与关键方向。" },
+          { title: "实时提示", text: "在行程中集中呈现转向与到达信息。" },
+          { title: "常用地点", text: "保存家庭、公司与常去地点，快速开始导航。" }
+        ],
+        scenarios: ["驾车路线导航", "步行与骑行指引", "常用地点管理"],
+        fit: "需要清晰路线与实时方向提示的用户",
+        start: "保存常用地点，再选择出行方式规划第一条路线。",
+        purpose: "路线导航、实时提示与地点管理"
+      },
+      parking: {
+        name: "小猫停车", en: "Cat Parking", category: "智能生活", icon: "travel", color: "#455a64",
+        tagline: "找车位、记位置，减少停车后的反复寻找。",
+        description: "小猫停车用于查询停车信息、记录车辆位置和整理停车记录，让开车出行更方便。",
+        features: [
+          { title: "停车查询", text: "查看目的地周边停车场所与基础信息。" },
+          { title: "位置记录", text: "保存停车位置与备注，方便返回取车。" },
+          { title: "停车记录", text: "整理历史停车时间与相关记录。" }
+        ],
+        scenarios: ["目的地停车查询", "车辆位置记录", "历史停车管理"],
+        fit: "需要停车信息与车辆位置记录的用户",
+        start: "查询目的地停车场，到达后保存车辆位置。",
+        purpose: "停车查询、位置记录与历史管理"
+      },
+      trip: {
+        name: "小猫旅行", en: "Cat Trips", category: "生活探索", icon: "travel", color: "#00a4ef",
+        tagline: "把目的地、行程与旅行清单整理在一起。",
+        description: "小猫旅行用于发现目的地、规划每日行程和整理旅行清单，让出发前与旅途中的信息更集中。",
+        features: [
+          { title: "目的地发现", text: "按兴趣与季节浏览旅行目的地内容。" },
+          { title: "行程规划", text: "按日期安排地点、交通与活动。" },
+          { title: "旅行清单", text: "整理证件、物品与出发前待办。" }
+        ],
+        scenarios: ["旅行目的地选择", "每日行程规划", "出行物品清单"],
+        fit: "希望集中规划旅行目的地与行程的用户",
+        start: "选择目的地，按日期添加最想去的三个地点。",
+        purpose: "目的地发现、行程规划与旅行清单"
+      },
+      hotel: {
+        name: "小猫酒店", en: "Cat Hotels", category: "生活探索", icon: "home", color: "#0078d4",
+        tagline: "按位置与需求，找到更合适的住宿。",
+        description: "小猫酒店用于浏览和比较住宿信息，通过位置、价格与设施筛选帮助用户整理旅行住宿选择。",
+        features: [
+          { title: "住宿搜索", text: "按照城市、日期与位置查找住宿。" },
+          { title: "条件筛选", text: "根据价格、设施与房型缩小选择范围。" },
+          { title: "住宿收藏", text: "保存候选酒店，方便比较与后续安排。" }
+        ],
+        scenarios: ["旅行住宿查询", "酒店条件比较", "候选住宿收藏"],
+        fit: "需要查找、比较和整理住宿信息的用户",
+        start: "输入目的地和日期，先按位置与预算筛选。",
+        purpose: "住宿搜索、条件比较与收藏管理"
+      },
+      flights: {
+        name: "小猫机票", en: "Cat Flights", category: "生活探索", icon: "travel", color: "#0078d4",
+        tagline: "集中比较航班时间，安排合适的飞行计划。",
+        description: "小猫机票用于查询航班信息、比较出发时间与整理出行候选，让飞行安排更清晰。",
+        features: [
+          { title: "航班查询", text: "按照出发地、目的地与日期查看航班。" },
+          { title: "时间比较", text: "对比起降时间与行程时长，选择合适安排。" },
+          { title: "行程关注", text: "保存候选航班，集中查看相关信息。" }
+        ],
+        scenarios: ["航班信息查询", "飞行时间比较", "候选行程整理"],
+        fit: "需要查询并比较航班信息的用户",
+        start: "输入行程与日期，先按出发时间筛选候选航班。",
+        purpose: "航班查询、时间比较与行程关注"
+      },
+      rail: {
+        name: "小猫火车票", en: "Cat Rail", category: "生活探索", icon: "travel", color: "#008272",
+        tagline: "车次、座位与行程信息，一页看清。",
+        description: "小猫火车票用于查询铁路车次、比较出发时间与整理乘车信息，帮助用户安排铁路出行。",
+        features: [
+          { title: "车次查询", text: "按照站点和日期查看可选车次。" },
+          { title: "车次比较", text: "比较出发到达时间与行程时长。" },
+          { title: "乘车清单", text: "整理候选车次与乘车准备事项。" }
+        ],
+        scenarios: ["铁路车次查询", "出发时间比较", "乘车信息整理"],
+        fit: "需要查询和比较铁路车次的用户",
+        start: "输入出发站、到达站和日期，保存合适车次。",
+        purpose: "铁路车次查询、比较与乘车清单"
+      },
+      takeout: {
+        name: "小猫外卖", en: "Cat Takeout", category: "生活探索", icon: "kitchen", color: "#d83b01",
+        tagline: "从附近美食到订单状态，集中安排每一餐。",
+        description: "小猫外卖用于发现餐饮商家、浏览菜品和查看订单进度，让日常点餐更加直接。",
+        features: [
+          { title: "商家发现", text: "按距离、品类与评分浏览餐饮商家。" },
+          { title: "菜品选择", text: "查看菜品信息并整理个人订单。" },
+          { title: "订单进度", text: "集中查看备餐与配送状态。" }
+        ],
+        scenarios: ["日常点餐", "附近商家发现", "外卖订单跟踪"],
+        fit: "需要集中浏览餐饮与管理外卖订单的用户",
+        start: "选择附近商家，浏览菜品并确认订单内容。",
+        purpose: "餐饮发现、菜品选择与订单进度"
+      },
+      shopping: {
+        name: "小猫购物", en: "Cat Shopping", category: "生活探索", icon: "bag", color: "#d83b01",
+        tagline: "发现商品、比较选择，也整理每一份购物清单。",
+        description: "小猫购物用于浏览商品、比较选项和管理购物车与收藏，帮助用户更有条理地完成日常选购。",
+        features: [
+          { title: "商品发现", text: "按分类与关键词浏览感兴趣的商品。" },
+          { title: "选择比较", text: "整理价格、规格与功能信息辅助判断。" },
+          { title: "清单收藏", text: "管理购物车与收藏，保存暂时不买的内容。" }
+        ],
+        scenarios: ["日常商品选购", "商品规格比较", "购物车与收藏整理"],
+        fit: "需要集中发现和比较商品的用户",
+        start: "搜索需要的商品，将候选项加入收藏进行比较。",
+        purpose: "商品发现、比较与购物清单管理"
+      },
+      resale: {
+        name: "小猫二手", en: "Cat Resale", category: "生活探索", icon: "sync", color: "#008272",
+        tagline: "让闲置物品被重新发现，也让交易信息更清楚。",
+        description: "小猫二手用于发布闲置物品、浏览二手商品和整理沟通记录，帮助用户处理个人闲置交易。",
+        features: [
+          { title: "闲置发布", text: "整理物品照片、成色与说明，形成清楚信息。" },
+          { title: "二手发现", text: "按分类与距离浏览感兴趣的物品。" },
+          { title: "沟通记录", text: "集中管理与物品相关的询问和沟通。" }
+        ],
+        scenarios: ["个人闲置发布", "二手物品浏览", "交易沟通整理"],
+        fit: "需要处理闲置物品与浏览二手商品的用户",
+        start: "拍摄清晰照片，如实填写物品状态并发布。",
+        purpose: "闲置发布、二手发现与沟通管理"
+      },
+      rental: {
+        name: "小猫租房", en: "Cat Rentals", category: "生活探索", icon: "home", color: "#455a64",
+        tagline: "按通勤、预算与空间需求整理租房选择。",
+        description: "小猫租房用于浏览房源、筛选租赁条件和收藏候选住址，帮助用户更有条理地安排租房。",
+        features: [
+          { title: "房源搜索", text: "按城市、区域与通勤位置查找房源。" },
+          { title: "条件筛选", text: "根据预算、户型与设施缩小范围。" },
+          { title: "看房清单", text: "收藏候选房源并记录看房安排。" }
+        ],
+        scenarios: ["租赁房源查找", "房源条件比较", "看房安排管理"],
+        fit: "需要搜索、比较和管理候选房源的用户",
+        start: "先确定预算与通勤范围，再建立候选看房清单。",
+        purpose: "房源搜索、条件筛选与看房清单"
+      },
+      realestate: {
+        name: "小猫房产", en: "Cat Property", category: "生活探索", icon: "home", color: "#0078d4",
+        tagline: "集中了解房产信息与区域生活配套。",
+        description: "小猫房产用于浏览房产信息、了解区域配套和整理关注清单，帮助用户持续跟踪感兴趣的房产内容。",
+        features: [
+          { title: "房产信息", text: "按区域与类型浏览房产基础信息。" },
+          { title: "区域了解", text: "集中查看交通、教育与生活配套内容。" },
+          { title: "关注清单", text: "保存关注对象并记录后续变化。" }
+        ],
+        scenarios: ["房产信息浏览", "区域配套了解", "关注房产整理"],
+        fit: "需要持续了解房产与区域信息的用户",
+        start: "选择关注区域，保存感兴趣的房产并整理比较项。",
+        purpose: "房产信息、区域配套与关注清单"
+      },
+      jobs: {
+        name: "小猫招聘", en: "Cat Jobs", category: "效率协作", icon: "briefcase", color: "#0078d4",
+        tagline: "让职位发现与求职进度保持清楚。",
+        description: "小猫招聘用于浏览职位、筛选工作条件和跟踪求职进度，帮助用户集中管理求职过程。",
+        features: [
+          { title: "职位发现", text: "按行业、地点与岗位类型浏览职位。" },
+          { title: "条件匹配", text: "根据经验、薪资与工作方式筛选机会。" },
+          { title: "求职进度", text: "记录投递、沟通与面试状态。" }
+        ],
+        scenarios: ["职位搜索", "求职条件筛选", "投递与面试进度管理"],
+        fit: "需要集中管理职位发现与求职流程的用户",
+        start: "完善求职条件，收藏合适职位并记录投递状态。",
+        purpose: "职位发现、条件筛选与求职进度"
+      },
+      resume: {
+        name: "小猫简历", en: "Cat Resume", category: "效率协作", icon: "document", color: "#008272",
+        tagline: "把经历讲清楚，为不同岗位整理不同版本。",
+        description: "小猫简历用于整理教育、工作与项目经历，通过模块化编辑和版本管理帮助用户准备求职材料。",
+        features: [
+          { title: "模块编辑", text: "按个人信息、经历与技能组织简历内容。" },
+          { title: "版式预览", text: "在编辑过程中查看整体排版与信息层级。" },
+          { title: "版本管理", text: "为不同岗位保存有针对性的简历版本。" }
+        ],
+        scenarios: ["求职简历制作", "项目经历整理", "多岗位简历版本管理"],
+        fit: "需要制作、优化和管理求职简历的用户",
+        start: "先整理核心经历，再针对目标岗位调整内容顺序。",
+        purpose: "简历编辑、版式预览与版本管理"
+      }
+,
+      attendance: {
+        name: "小猫考勤", en: "Cat Attendance", category: "效率协作", icon: "calendar", color: "#0078d4",
+        tagline: "让出勤记录与团队时间统计更清晰。",
+        description: "小猫考勤用于记录出勤、整理请假与查看团队时间统计，帮助组织减少重复核对。",
+        features: [
+          { title: "出勤记录", text: "按成员和日期整理日常出勤信息。" },
+          { title: "请假管理", text: "集中查看请假类型、时间与审批状态。" },
+          { title: "统计报表", text: "按周期汇总出勤数据，方便核对。" }
+        ],
+        scenarios: ["团队出勤记录", "请假信息整理", "周期考勤统计"],
+        fit: "需要管理成员出勤与请假的团队",
+        start: "设置团队考勤规则，再导入成员并开始记录。",
+        purpose: "出勤记录、请假管理与统计分析"
+      },
+      hr: {
+        name: "小猫人事", en: "Cat HR", category: "效率协作", icon: "users", color: "#455a64",
+        tagline: "围绕成员全周期，整理团队人事信息。",
+        description: "小猫人事用于管理成员资料、入转调离流程和团队信息，帮助组织保持人事记录清晰。",
+        features: [
+          { title: "成员资料", text: "集中整理成员基础信息与岗位记录。" },
+          { title: "人事流程", text: "跟踪入职、转岗与离职等事项进度。" },
+          { title: "团队视图", text: "按部门与岗位了解组织人员结构。" }
+        ],
+        scenarios: ["成员资料管理", "入转调离流程", "组织结构查看"],
+        fit: "需要集中管理成员资料与人事流程的团队",
+        start: "完善部门结构，再整理现有成员资料与待办流程。",
+        purpose: "成员资料、人事流程与组织结构管理"
+      },
+      crm: {
+        name: "小猫客户管理", en: "Cat CRM", category: "商务服务", icon: "users", color: "#0078d4",
+        tagline: "把客户资料、沟通与跟进机会连在一起。",
+        description: "小猫客户管理用于整理客户资料、记录沟通和跟踪销售机会，帮助团队持续了解客户关系。",
+        features: [
+          { title: "客户资料", text: "集中保存客户信息与联系人记录。" },
+          { title: "沟通跟进", text: "记录交流内容与下一步跟进事项。" },
+          { title: "机会管理", text: "按阶段整理潜在业务机会。" }
+        ],
+        scenarios: ["客户资料管理", "销售沟通记录", "业务机会跟进"],
+        fit: "需要持续管理客户关系与销售跟进的团队",
+        start: "导入客户清单，为重点客户添加下一次跟进任务。",
+        purpose: "客户资料、沟通记录与机会管理"
+      },
+      sales: {
+        name: "小猫销售", en: "Cat Sales", category: "商务服务", icon: "chart", color: "#107c10",
+        tagline: "从目标到成交，持续看清销售进程。",
+        description: "小猫销售用于管理销售目标、业务阶段与业绩数据，帮助团队发现当前重点与趋势。",
+        features: [
+          { title: "销售目标", text: "按周期设定团队与个人目标。" },
+          { title: "阶段管理", text: "将业务机会按销售阶段持续推进。" },
+          { title: "业绩分析", text: "通过图表比较目标与实际表现。" }
+        ],
+        scenarios: ["销售目标管理", "业务阶段跟进", "团队业绩分析"],
+        fit: "需要跟踪销售过程与业绩表现的团队",
+        start: "确认销售阶段与目标，再整理当前业务机会。",
+        purpose: "销售目标、业务阶段与业绩分析"
+      },
+      inventory: {
+        name: "小猫库存", en: "Cat Inventory", category: "商务服务", icon: "package", color: "#455a64",
+        tagline: "实时整理库存数量、位置与补货提醒。",
+        description: "小猫库存用于记录商品与物料库存、出入库变化和存放位置，帮助团队减少缺货与积压。",
+        features: [
+          { title: "库存台账", text: "按物品、仓库与批次整理库存数量。" },
+          { title: "出入库记录", text: "保存每次库存变化的原因与关联信息。" },
+          { title: "补货提醒", text: "为低库存物品设置提醒阈值。" }
+        ],
+        scenarios: ["商品库存管理", "物料出入库记录", "低库存补货提醒"],
+        fit: "需要管理商品或物料库存的团队与商家",
+        start: "建立物品与仓库清单，核对初始库存数量。",
+        purpose: "库存台账、出入库与补货提醒"
+      },
+      procurement: {
+        name: "小猫采购", en: "Cat Procurement", category: "商务服务", icon: "bag", color: "#0078d4",
+        tagline: "从采购需求到收货记录，流程清楚可追踪。",
+        description: "小猫采购用于整理采购需求、供应商信息、订单进度与收货记录，帮助团队协同完成采购。",
+        features: [
+          { title: "采购需求", text: "集中提交和审核物品与数量需求。" },
+          { title: "供应商管理", text: "整理供应商资料与历史合作记录。" },
+          { title: "订单收货", text: "跟踪采购订单状态并记录收货情况。" }
+        ],
+        scenarios: ["采购需求审批", "供应商资料管理", "订单与收货跟踪"],
+        fit: "需要规范采购流程与供应商管理的团队",
+        start: "整理供应商与采购物品，再提交第一条采购需求。",
+        purpose: "采购需求、供应商与订单收货管理"
+      },
+      project: {
+        name: "小猫项目", en: "Cat Projects", category: "效率协作", icon: "layers", color: "#008272",
+        tagline: "从目标、计划到交付，让项目进展一目了然。",
+        description: "小猫项目用于规划项目阶段、拆分任务和跟踪交付进度，帮助团队围绕共同目标协作。",
+        features: [
+          { title: "项目规划", text: "明确目标、阶段、里程碑与关键交付物。" },
+          { title: "任务拆解", text: "将工作拆分为可执行的任务与负责人。" },
+          { title: "进度视图", text: "通过时间线与状态视图发现风险与阻塞。" }
+        ],
+        scenarios: ["项目计划制定", "团队任务拆解", "交付进度跟踪"],
+        fit: "需要系统规划和跟踪项目的团队",
+        start: "明确项目目标与交付物，再拆分第一阶段任务。",
+        purpose: "项目规划、任务拆解与交付跟踪"
+      },
+      approval: {
+        name: "小猫审批", en: "Cat Approval", category: "效率协作", icon: "check", color: "#0078d4",
+        tagline: "让申请、审批与结果通知沿清晰流程前进。",
+        description: "小猫审批用于提交申请、配置审批步骤和跟踪处理状态，帮助团队减少线下沟通与遗漏。",
+        features: [
+          { title: "申请提交", text: "按类型填写事项、说明与相关附件。" },
+          { title: "流程配置", text: "根据组织规则设置审批人与处理顺序。" },
+          { title: "状态跟踪", text: "查看待办、已通过和需补充的申请。" }
+        ],
+        scenarios: ["请假与报销申请", "业务事项审批", "审批状态跟踪"],
+        fit: "需要线上提交与处理审批事项的团队",
+        start: "选择申请类型，确认审批流程后提交第一项申请。",
+        purpose: "申请提交、流程配置与状态跟踪"
+      },
+      esign: {
+        name: "小猫电子签名", en: "Cat Sign", category: "商务服务", icon: "pen", color: "#455a64",
+        tagline: "让文件签署邀请与完成状态更清楚。",
+        description: "小猫电子签名用于发起文件签署、管理签署人与跟踪完成状态，帮助团队整理电子签署流程。",
+        features: [
+          { title: "签署发起", text: "上传文件并指定需要签署的位置与人员。" },
+          { title: "签署管理", text: "查看每位签署人的当前进度。" },
+          { title: "完成归档", text: "保存完成文件与相关操作记录。" }
+        ],
+        scenarios: ["合同电子签署", "多方文件确认", "签署文件归档"],
+        fit: "需要组织电子签署与状态跟踪的用户和团队",
+        start: "上传待签文件，添加签署人并确认签署顺序。",
+        purpose: "电子签署发起、进度与归档管理"
+      },
+      invoice: {
+        name: "小猫发票", en: "Cat Invoice", category: "商务服务", icon: "document", color: "#0078d4",
+        tagline: "集中整理开票信息、发票文件与查验记录。",
+        description: "小猫发票用于管理开票资料、发票文件和查验状态，帮助个人与团队减少票据查找时间。",
+        features: [
+          { title: "开票资料", text: "保存常用抬头与相关开票信息。" },
+          { title: "发票管理", text: "按日期、类型与状态整理发票文件。" },
+          { title: "查验记录", text: "记录发票核对结果与相关备注。" }
+        ],
+        scenarios: ["开票信息管理", "发票文件归档", "发票查验与核对"],
+        fit: "需要集中整理发票与开票资料的用户和团队",
+        start: "添加常用开票资料，再导入需要管理的发票文件。",
+        purpose: "开票资料、发票文件与查验管理"
+      },
+      accounting: {
+        name: "小猫记账", en: "Cat Accounting", category: "商务服务", icon: "book", color: "#107c10",
+        tagline: "记录每一笔收支，看懂自己的资金流向。",
+        description: "小猫记账用于记录收入与支出、分类整理账目和查看周期统计，帮助用户形成清晰的财务记录。",
+        features: [
+          { title: "收支记录", text: "快速保存金额、分类与相关备注。" },
+          { title: "分类管理", text: "按照个人或业务需要整理账目类别。" },
+          { title: "周期统计", text: "通过周月视图了解收支结构。" }
+        ],
+        scenarios: ["个人日常记账", "小团队收支记录", "周期收支统计"],
+        fit: "需要持续记录并分析收支的用户",
+        start: "建立常用收支分类，从记录今天的第一笔账开始。",
+        purpose: "收支记录、分类与周期统计"
+      },
+      budget: {
+        name: "小猫预算", en: "Cat Budget", category: "商务服务", icon: "chart", color: "#008272",
+        tagline: "先规划资金用途，再持续对照实际执行。",
+        description: "小猫预算用于制定个人或团队预算、跟踪执行进度和比较预算与实际差异。",
+        features: [
+          { title: "预算编制", text: "按周期与类别规划可用金额。" },
+          { title: "执行跟踪", text: "持续记录实际支出与预算余额。" },
+          { title: "差异分析", text: "比较计划与实际，发现超支项目。" }
+        ],
+        scenarios: ["个人月度预算", "团队项目预算", "预算执行差异分析"],
+        fit: "需要规划并跟踪资金使用的用户和团队",
+        start: "确定预算周期与重点类别，再录入计划金额。",
+        purpose: "预算编制、执行跟踪与差异分析"
+      },
+      tax: {
+        name: "小猫税务", en: "Cat Tax", category: "商务服务", icon: "document", color: "#455a64",
+        tagline: "整理税务资料与办理节点，减少遗漏。",
+        description: "小猫税务用于归档税务资料、记录申报事项和提醒办理时间，帮助用户保持税务事项清晰。",
+        features: [
+          { title: "资料归档", text: "按类型与周期整理税务相关文件。" },
+          { title: "事项清单", text: "记录需要办理的税务事项与当前状态。" },
+          { title: "时间提醒", text: "为申报与资料准备设置节点提醒。" }
+        ],
+        scenarios: ["税务文件归档", "申报事项管理", "办理节点提醒"],
+        fit: "需要整理税务资料与办理计划的用户和团队",
+        start: "建立税务资料分类，添加最近一个办理节点。",
+        purpose: "税务资料、事项清单与时间提醒"
+      },
+      legal: {
+        name: "小猫法律", en: "Cat Legal", category: "商务服务", icon: "book", color: "#0078d4",
+        tagline: "集中整理法律知识、文书与咨询事项。",
+        description: "小猫法律用于浏览法律科普、整理相关文书和记录咨询进度，帮助用户更有条理地处理法律信息。",
+        features: [
+          { title: "法律科普", text: "按生活与工作主题浏览基础法律知识。" },
+          { title: "文书整理", text: "分类保存相关法律文件与材料。" },
+          { title: "咨询记录", text: "整理问题、沟通内容与后续事项。" }
+        ],
+        scenarios: ["法律知识学习", "法律材料归档", "咨询事项跟进"],
+        fit: "需要管理法律信息与相关文书的用户",
+        start: "选择关注的法律主题，整理现有材料与问题清单。",
+        purpose: "法律知识、文书整理与咨询记录"
+      },
+      backup: {
+        name: "小猫安全备份", en: "Cat Backup", category: "安全隐私", icon: "cloud", color: "#0078d4",
+        tagline: "为重要文件保留可恢复的副本。",
+        description: "小猫安全备份用于设置文件备份范围、查看备份状态和安排恢复，帮助用户降低资料丢失风险。",
+        features: [
+          { title: "备份计划", text: "选择重要目录并设置自动备份周期。" },
+          { title: "状态监控", text: "查看最近备份时间、结果与异常提示。" },
+          { title: "版本恢复", text: "按时间点查找并恢复需要的文件版本。" }
+        ],
+        scenarios: ["重要文件自动备份", "备份状态检查", "历史版本恢复"],
+        fit: "需要为重要资料建立备份与恢复能力的用户",
+        start: "选择最重要的文件目录，完成首次备份并验证状态。",
+        purpose: "文件备份、状态监控与版本恢复"
+      },
+      passwords: {
+        name: "小猫密码", en: "Cat Passwords", category: "安全隐私", icon: "key", color: "#455a64",
+        tagline: "安全保存登录信息，减少重复使用弱密码。",
+        description: "小猫密码用于集中保存账户登录信息、生成高强度密码和整理安全记录，帮助用户管理数字凭据。",
+        features: [
+          { title: "密码保管", text: "将账户信息保存在受保护的个人空间。" },
+          { title: "密码生成", text: "按长度与复杂度创建更难猜测的密码。" },
+          { title: "安全检查", text: "发现重复或过弱的密码并提示更新。" }
+        ],
+        scenarios: ["账户凭据管理", "高强度密码生成", "弱密码检查"],
+        fit: "需要安全管理多个账户密码的用户",
+        start: "设置主密码，再整理最重要账户的登录信息。",
+        purpose: "密码保管、生成与安全检查"
+      },
+      devices: {
+        name: "小猫设备管理", en: "Cat Devices", category: "智能生活", icon: "os", color: "#0078d4",
+        tagline: "把设备清单、状态与使用权限集中管理。",
+        description: "小猫设备管理用于登记设备、查看运行状态和管理使用权限，适合家庭与团队的多设备场景。",
+        features: [
+          { title: "设备清单", text: "记录设备名称、类型与所属空间。" },
+          { title: "状态查看", text: "集中了解在线、离线及需要处理的状态。" },
+          { title: "使用权限", text: "按成员与场景分配设备使用范围。" }
+        ],
+        scenarios: ["家庭设备登记", "团队设备状态检查", "设备使用权限管理"],
+        fit: "需要统一管理多台设备的用户和团队",
+        start: "添加现有设备并完成分组，再确认使用权限。",
+        purpose: "设备清单、状态与使用权限管理"
+      },
+      remote: {
+        name: "小猫远程协助", en: "Cat Remote Help", category: "效率协作", icon: "cursor", color: "#008272",
+        tagline: "在获得同意后，远程查看并协助解决问题。",
+        description: "小猫远程协助用于发起授权连接、共享屏幕和记录协助过程，帮助用户处理远程技术支持。",
+        features: [
+          { title: "授权连接", text: "由被协助方确认后建立远程会话。" },
+          { title: "屏幕共享", text: "实时查看问题界面并进行操作说明。" },
+          { title: "协助记录", text: "保存问题描述、处理过程与结果备注。" }
+        ],
+        scenarios: ["家庭远程技术支持", "团队问题协助", "处理过程记录"],
+        fit: "需要提供或获得远程技术支持的用户",
+        start: "确认对方身份与授权，再发起一次远程协助会话。",
+        purpose: "授权远程连接、屏幕共享与协助记录"
+      },
+      cast: {
+        name: "小猫屏幕镜像", en: "Cat Cast", category: "智能生活", icon: "tv", color: "#0078d4",
+        tagline: "把手机与电脑内容，方便地呈现在大屏上。",
+        description: "小猫屏幕镜像用于发现可用显示设备、建立镜像连接并管理播放状态，适合演示与家庭观看。",
+        features: [
+          { title: "设备发现", text: "查找当前环境中可用于镜像的显示设备。" },
+          { title: "镜像连接", text: "选择需要分享的屏幕或应用内容。" },
+          { title: "播放控制", text: "在连接过程中调整显示与结束共享。" }
+        ],
+        scenarios: ["会议屏幕演示", "家庭大屏观看", "课堂内容分享"],
+        fit: "需要将屏幕内容投射到大屏的用户",
+        start: "确保设备处于同一网络，选择大屏并开始镜像。",
+        purpose: "显示设备发现、屏幕镜像与播放控制"
+      },
+      live: {
+        name: "小猫直播", en: "Cat Live", category: "创意媒体", icon: "play", color: "#d83b01",
+        tagline: "从一场直播开始，与观众实时分享内容。",
+        description: "小猫直播用于创建直播、管理画面与互动信息，适合活动、教学和内容创作场景。",
+        features: [
+          { title: "直播创建", text: "设置主题、时间与画面来源，准备开播。" },
+          { title: "画面管理", text: "在直播过程中切换画面与展示内容。" },
+          { title: "观众互动", text: "集中查看评论与实时互动信息。" }
+        ],
+        scenarios: ["活动直播", "在线教学直播", "创作者实时互动"],
+        fit: "需要进行实时视频分享与互动的用户",
+        start: "检查音视频设备，创建直播主题并完成试播。",
+        purpose: "直播创建、画面管理与观众互动"
+      },
+      podcast: {
+        name: "小猫播客", en: "Cat Podcast", category: "创意媒体", icon: "music", color: "#008272",
+        tagline: "发现值得听的声音，也整理自己的节目。",
+        description: "小猫播客用于发现节目、订阅更新和管理收听进度，帮助用户建立个人音频内容清单。",
+        features: [
+          { title: "节目发现", text: "按主题与榜单浏览感兴趣的播客。" },
+          { title: "订阅更新", text: "集中查看已订阅节目的最新内容。" },
+          { title: "收听进度", text: "保存播放位置，之后继续收听。" }
+        ],
+        scenarios: ["通勤播客收听", "节目订阅管理", "音频学习"],
+        fit: "需要发现、订阅和连续收听播客的用户",
+        start: "选择感兴趣的主题，订阅节目并保存收听进度。",
+        purpose: "播客发现、订阅与收听进度管理"
+      },
+      reading: {
+        name: "小猫阅读", en: "Cat Reading", category: "创意媒体", icon: "book", color: "#455a64",
+        tagline: "把想读的内容放在一起，保持自己的阅读节奏。",
+        description: "小猫阅读用于浏览书籍与文章、管理书架和记录阅读进度，让阅读更加连续。",
+        features: [
+          { title: "内容发现", text: "按分类与主题浏览书籍和文章。" },
+          { title: "个人书架", text: "整理在读、想读与已完成内容。" },
+          { title: "阅读记录", text: "保存进度、书签与个人摘记。" }
+        ],
+        scenarios: ["日常阅读", "书籍与文章整理", "阅读进度和摘记"],
+        fit: "需要管理阅读内容与个人进度的用户",
+        start: "把正在阅读的内容加入书架，设置第一个书签。",
+        purpose: "阅读发现、书架与阅读记录管理"
+      },
+      comics: {
+        name: "小猫漫画", en: "Cat Comics", category: "创意媒体", icon: "image", color: "#d83b01",
+        tagline: "按自己的节奏，发现与追更喜欢的漫画。",
+        description: "小猫漫画用于浏览漫画、管理追更与保存阅读进度，提供适合连续阅读的内容入口。",
+        features: [
+          { title: "漫画发现", text: "按题材与热度浏览漫画作品。" },
+          { title: "追更管理", text: "集中查看关注作品的更新情况。" },
+          { title: "阅读进度", text: "保存章节与页码位置，随时继续阅读。" }
+        ],
+        scenarios: ["漫画浏览", "作品追更", "章节阅读进度管理"],
+        fit: "需要集中发现和追踪漫画作品的用户",
+        start: "选择喜欢的题材，将作品加入追更清单。",
+        purpose: "漫画发现、追更与阅读进度管理"
+      },
+      design: {
+        name: "小猫设计", en: "Cat Design", category: "创意媒体", icon: "pen", color: "#0078d4",
+        tagline: "从灵感草图到完整画面，集中完成视觉创作。",
+        description: "小猫设计用于组织画布、图形、图片与文字，帮助用户完成海报、社交图片与视觉方案。",
+        features: [
+          { title: "画布编辑", text: "自由组织文字、图片与图形元素。" },
+          { title: "模板起步", text: "从适合场景的版式开始，再按需要修改。" },
+          { title: "作品管理", text: "保存不同版本并整理导出内容。" }
+        ],
+        scenarios: ["海报与社交图片制作", "品牌视觉方案", "设计版本管理"],
+        fit: "需要完成日常视觉设计与作品整理的用户",
+        start: "选择画布尺寸，从模板或空白页面开始设计。",
+        purpose: "视觉设计、模板编辑与作品管理"
+      },
+      editing: {
+        name: "小猫剪辑", en: "Cat Editing", category: "创意媒体", icon: "play", color: "#008272",
+        tagline: "把素材按故事顺序连接起来，完成自己的视频。",
+        description: "小猫剪辑用于整理视频素材、剪切片段、添加文字与音频，并管理作品导出版本。",
+        features: [
+          { title: "片段剪辑", text: "按照时间顺序剪切、移动与组合素材。" },
+          { title: "文字音频", text: "为画面添加标题、字幕与背景声音。" },
+          { title: "作品导出", text: "保存项目版本并整理不同用途的导出内容。" }
+        ],
+        scenarios: ["日常视频剪辑", "课程内容制作", "短视频与字幕处理"],
+        fit: "需要完成基础视频剪辑与作品管理的用户",
+        start: "导入素材，先排列故事顺序，再处理文字与音频。",
+        purpose: "视频剪辑、文字音频与作品导出"
+      }
+    };
+
+    var compareSelection = {};
+    var defaultCompare = { "cat-os": true, "laotan-os": true, ai: true, games: true, search: true };
+    var relatedMap = { "cat-os": "ai", "laotan-os": "cat-os", ai: "search", games: "kids", search: "web", social: "chat", service: "cloud", store: "suite", dev: "web", ads: "social", chat: "social", teen: "college", photos: "cloud", docs: "cloud", travel: "web", astro: "web", pay: "store", "3d-portal": "video", web: "search", cloud: "sync", phone: "chat", sync: "cloud", share: "social", suite: "store", input: "docs", kitchen: "video", video: "photos", kids: "teen", college: "teen", music: "video", sms: "chat", family: "kids", translate: "docs", finance: "analytics", tv: "video", "sport-watch": "mobile", "kids-watch": "family", charity: "social", calendar: "collaborate", plugins: "store", desktop: "cat-os", notes: "docs", whiteboard: "collaborate", collaborate: "docs", classroom: "college", plus: "service", analytics: "finance", "vr-portal": "3d-portal", mobile: "sync", contract: "docs", security: "privacy", privacy: "security", parental: "kids", health: "fitness", sleep: "health", fitness: "sport-watch", medical: "health", mind: "health", smarthome: "devices", lighting: "smarthome", doorlock: "smarthome", car: "navigation", navigation: "travel", parking: "navigation", trip: "travel", hotel: "trip", flights: "trip", rail: "trip", takeout: "kitchen", shopping: "store", resale: "shopping", rental: "realestate", realestate: "rental", jobs: "resume", resume: "jobs", attendance: "hr", hr: "attendance", crm: "sales", sales: "crm", inventory: "procurement", procurement: "inventory", project: "collaborate", approval: "project", esign: "contract", invoice: "accounting", accounting: "budget", budget: "accounting", tax: "invoice", legal: "contract", backup: "cloud", passwords: "security", devices: "smarthome", remote: "devices", cast: "tv", live: "video", podcast: "music", reading: "notes", comics: "reading", design: "photos", editing: "video" };
+    var viewNames = { home: "首页", products: "产品中心", compare: "产品对比", about: "关于小猫" };
+    var toastTimer = null;
+    var productIds = [];
+    var initId;
+    for (initId in products) {
+      if (Object.prototype.hasOwnProperty.call(products, initId)) {
+        compareSelection[initId] = !!defaultCompare[initId];
+        productIds.push(initId);
+        if (!products[initId].capabilities) {
+          var capabilityNames = [];
+          for (var capabilityIndex = 0; capabilityIndex < products[initId].features.length; capabilityIndex++) capabilityNames.push(products[initId].features[capabilityIndex].title);
+          products[initId].capabilities = capabilityNames.join("、");
+        }
+      }
+    }
+
+    function bindEvent(target, type, handler) {
+      if (target.addEventListener) target.addEventListener(type, handler, false);
+      else if (target.attachEvent) target.attachEvent("on" + type, handler);
+    }
+    function hasClass(element, name) { return (" " + element.className + " ").indexOf(" " + name + " ") > -1; }
+    function addClass(element, name) { if (!hasClass(element, name)) element.className = element.className ? element.className + " " + name : name; }
+    function removeClass(element, name) {
+      var classes = element.className.split(/\s+/);
+      var kept = [];
+      var i;
+      for (i = 0; i < classes.length; i++) if (classes[i] && classes[i] !== name) kept.push(classes[i]);
+      element.className = kept.join(" ");
+    }
+    function setText(element, text) { if ("textContent" in element) element.textContent = text; else element.innerText = text; }
+    function iconUse(id, className) {
+      return '<svg class="' + (className || "icon") + '" aria-hidden="true"><use href="#icon-' + id + '" xlink:href="#icon-' + id + '"/></svg>';
+    }
+    function additionalCardHTML(id, catalog) {
+      var p = products[id];
+      var selected = !!compareSelection[id];
+      var dataAttributes = catalog ? ' data-product-card data-category="' + p.category + '"' : ' data-home-new="true"';
+      var actions = catalog
+        ? '<a class="button button-primary" href="#/product/' + id + '">查看产品详情</a>'
+        : '<a class="text-link" href="#/product/' + id + '">查看详情' + iconUse("arrow", "icon icon-sm") + '</a>';
+      return '<article class="product-card"' + dataAttributes + ' style="background-color:' + p.color + '">'
+        + '<div class="product-icon">' + iconUse(p.icon, "icon icon-lg") + '</div><span class="product-category">' + p.category + '</span><h3>' + p.name + '</h3><span class="product-en">' + p.en + '</span><p>' + p.description + '</p>'
+        + '<div class="product-actions">' + actions + '<button class="button" type="button" data-compare="' + id + '" aria-pressed="' + (selected ? "true" : "false") + '">' + (selected ? "移出对比" : "加入对比") + '</button></div></article>';
+    }
+    var homeNextIndex = 5;
+    var homeBatchSize = 10;
+    var homeLoading = false;
+    var homeLoadObserver = null;
+    function updateHomeLoadStatus() {
+      var remaining = productIds.length - homeNextIndex;
+      var loadMore = document.getElementById("homeLoadMore");
+      setText(document.getElementById("homeLoadStatus"), remaining > 0 ? "已显示 " + homeNextIndex + " / " + productIds.length + " 款，向下滚动自动加载" : "已显示全部 " + productIds.length + " 款产品");
+      if (remaining <= 0) {
+        loadMore.style.display = "none";
+        if (homeLoadObserver) homeLoadObserver.unobserve(loadMore);
+      }
+    }
+    function renderMoreHomeProducts() {
+      if (homeLoading || homeNextIndex >= productIds.length) return;
+      homeLoading = true;
+      var homeGrid = document.querySelector('[data-view="home"] .product-grid');
+      var homeView = document.querySelector('[data-view="home"]');
+      var end = Math.min(homeNextIndex + homeBatchSize, productIds.length);
+      var homeHTML = "";
+      var i;
+      for (i = homeNextIndex; i < end; i++) homeHTML += additionalCardHTML(productIds[i], false);
+      homeGrid.insertAdjacentHTML("beforeend", homeHTML);
+      homeNextIndex = end;
+      animateCollection(homeGrid, "[data-home-new]", 55);
+      var newCards = homeGrid.querySelectorAll("[data-home-new]");
+      for (i = 0; i < newCards.length; i++) newCards[i].removeAttribute("data-home-new");
+      bindTileTilt(homeView);
+      updateHomeLoadStatus();
+      homeLoading = false;
+    }
+    function renderAdditionalProductCards() {
+      var catalogGrid = document.getElementById("catalogGrid");
+      var catalogHTML = "";
+      var loadMore = document.getElementById("homeLoadMore");
+      var i;
+      for (i = 5; i < productIds.length; i++) catalogHTML += additionalCardHTML(productIds[i], true);
+      catalogGrid.insertAdjacentHTML("beforeend", catalogHTML);
+      bindEvent(document.getElementById("homeMoreButton"), "click", renderMoreHomeProducts);
+      if ("IntersectionObserver" in window) {
+        homeLoadObserver = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) renderMoreHomeProducts();
+        }, { rootMargin: "280px 0px" });
+        homeLoadObserver.observe(loadMore);
+      }
+      renderMoreHomeProducts();
+    }
+    function closestWithAttribute(element, attribute) {
+      while (element && element !== document) {
+        if (element.getAttribute && element.getAttribute(attribute) !== null) return element;
+        element = element.parentNode;
+      }
+      return null;
+    }
+    function replaceHash(hash) {
+      if (window.history && window.history.replaceState) window.history.replaceState(null, "", hash);
+      else window.location.hash = hash;
+    }
+    function showToast(message) {
+      var toast = document.getElementById("toast");
+      setText(toast, message);
+      addClass(toast, "show");
+      if (toastTimer) window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(function () { removeClass(toast, "show"); }, 2200);
+    }
+    function closeMobileNav() { removeClass(document.body, "nav-open"); }
+    function selectedCount() {
+      var count = 0;
+      var i;
+      for (i = 0; i < productIds.length; i++) if (compareSelection[productIds[i]]) count++;
+      return count;
+    }
+
+    /* ===== Metro 动效控制器 ===== */
+    var reducedMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    var viewMotionTimer = null;
+    var revealObserver = null;
+
+    function animateCollection(scope, selector, step) {
+      if (reducedMotion || window.unsupportedBrowserName || !scope) return;
+      var items = scope.querySelectorAll(selector);
+      var limit = Math.min(items.length, 30);
+      var i;
+      for (i = 0; i < limit; i++) {
+        removeClass(items[i], "metro-cascade");
+        removeClass(items[i], "metro-cascade-reverse");
+        items[i].style.animationDelay = "0ms";
+      }
+      if (!limit) return;
+      void scope.offsetWidth;
+      for (i = 0; i < limit; i++) {
+        addClass(items[i], "metro-cascade");
+        if (i % 2) addClass(items[i], "metro-cascade-reverse");
+        items[i].style.animationDelay = Math.min(i * step, 490) + "ms";
+      }
+      window.setTimeout(function () {
+        for (i = 0; i < limit; i++) {
+          removeClass(items[i], "metro-cascade");
+          removeClass(items[i], "metro-cascade-reverse");
+          items[i].style.animationDelay = "";
+        }
+      }, 1250);
+    }
+
+    function prepareReveal(view) {
+      if (reducedMotion || window.unsupportedBrowserName || !("IntersectionObserver" in window)) return;
+      var blocks = view.querySelectorAll(".home-section, .closing-panel, .detail-grid, .principles");
+      var i;
+      if (!revealObserver) {
+        revealObserver = new IntersectionObserver(function (entries) {
+          var j;
+          for (j = 0; j < entries.length; j++) {
+            if (entries[j].isIntersecting) {
+              addClass(entries[j].target, "metro-revealed");
+              revealObserver.unobserve(entries[j].target);
+            }
+          }
+        }, { threshold: .12, rootMargin: "0px 0px -30px 0px" });
+      }
+      for (i = 0; i < blocks.length; i++) {
+        if (!hasClass(blocks[i], "metro-revealed")) {
+          addClass(blocks[i], "metro-reveal");
+          revealObserver.observe(blocks[i]);
+        }
+      }
+    }
+
+    function bindTileTilt(view) {
+      if (reducedMotion || window.unsupportedBrowserName || !window.matchMedia || !window.matchMedia("(pointer: fine)").matches) return;
+      var cards = view.querySelectorAll(".product-card");
+      var i;
+      for (i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute("data-tilt-bound")) continue;
+        cards[i].setAttribute("data-tilt-bound", "true");
+        bindEvent(cards[i], "mousemove", function (event) {
+          if (hasClass(this, "metro-cascade")) return;
+          var rect = this.getBoundingClientRect();
+          var x = (event.clientX - rect.left) / rect.width - .5;
+          var y = (event.clientY - rect.top) / rect.height - .5;
+          this.style.transform = "perspective(800px) translateY(-7px) rotateX(" + (-y * 7).toFixed(2) + "deg) rotateY(" + (x * 9).toFixed(2) + "deg)";
+        });
+        bindEvent(cards[i], "mouseleave", function () { this.style.transform = ""; });
+      }
+    }
+
+    function animateView(activeView) {
+      if (reducedMotion || window.unsupportedBrowserName) return;
+      var view = document.querySelector('[data-view="' + activeView + '"]');
+      var progress = document.getElementById("routeProgress");
+      var title = document.getElementById("pageTitle");
+      if (!view) return;
+      removeClass(view, "metro-view-enter");
+      removeClass(title, "metro-title-change");
+      removeClass(progress, "go");
+      void view.offsetWidth;
+      addClass(view, "metro-view-enter");
+      addClass(title, "metro-title-change");
+      addClass(progress, "go");
+      animateCollection(view, ".hero, .value-item, .product-card, .detail-hero, .detail-main, .detail-aside, .filter-bar, .compare-picker, .empty-state, .about-intro", 65);
+      prepareReveal(view);
+      bindTileTilt(view);
+      if (viewMotionTimer) window.clearTimeout(viewMotionTimer);
+      viewMotionTimer = window.setTimeout(function () {
+        removeClass(view, "metro-view-enter");
+        removeClass(title, "metro-title-change");
+        removeClass(progress, "go");
+      }, 1300);
+    }
+
+    function closestMotionTarget(element) {
+      var className;
+      while (element && element !== document) {
+        className = element.getAttribute ? element.getAttribute("class") || "" : "";
+        if (/(^|\s)(button|command-button|icon-button|filter-button)(\s|$)/.test(className)) return element;
+        element = element.parentNode;
+      }
+      return null;
+    }
+
+    function createRipple(target, event) {
+      if (reducedMotion || window.unsupportedBrowserName || !target) return;
+      var rect = target.getBoundingClientRect();
+      var ripple = document.createElement("span");
+      var clientX = event.clientX || rect.left + rect.width / 2;
+      var clientY = event.clientY || rect.top + rect.height / 2;
+      ripple.className = "metro-ripple";
+      ripple.style.left = (clientX - rect.left) + "px";
+      ripple.style.top = (clientY - rect.top) + "px";
+      target.appendChild(ripple);
+      window.setTimeout(function () { if (ripple.parentNode) ripple.parentNode.removeChild(ripple); }, 720);
+    }
+
+    function route() {
+      var parts = window.location.hash.replace(/^#\/?/, "").split("/");
+      var view = parts[0] || "home";
+      var activeView = view;
+      var title = viewNames[view] || "首页";
+      var sections;
+      var links;
+      var i;
+      var isActive;
+      if (view === "product" && products[parts[1]]) {
+        renderProduct(parts[1]);
+        title = products[parts[1]].name;
+      } else if (!Object.prototype.hasOwnProperty.call(viewNames, view)) {
+        activeView = "home";
+        title = "首页";
+        replaceHash("#/home");
+      }
+      sections = document.querySelectorAll(".view");
+      for (i = 0; i < sections.length; i++) {
+        isActive = sections[i].getAttribute("data-view") === activeView;
+        sections[i].style.display = isActive ? "block" : "none";
+        if (isActive) sections[i].removeAttribute("hidden");
+        else sections[i].setAttribute("hidden", "hidden");
+      }
+      links = document.querySelectorAll("[data-nav]");
+      for (i = 0; i < links.length; i++) {
+        isActive = links[i].getAttribute("data-nav") === activeView || (activeView === "product" && links[i].getAttribute("data-nav") === "products");
+        if (isActive) {
+          addClass(links[i], "active");
+          links[i].setAttribute("aria-current", "page");
+        } else {
+          removeClass(links[i], "active");
+          links[i].removeAttribute("aria-current");
+        }
+      }
+      setText(document.getElementById("pageTitle"), title);
+      document.title = title + " · 小猫科技";
+      if (activeView === "compare") renderCompare();
+      animateView(activeView);
+      closeMobileNav();
+      window.scrollTo(0, 0);
+    }
+
+    function renderProduct(id) {
+      var p = products[id];
+      var relatedId = relatedMap[id];
+      var related = products[relatedId];
+      var selected = !!compareSelection[id];
+      var features = "";
+      var scenarios = "";
+      var html;
+      var i;
+      for (i = 0; i < p.features.length; i++) {
+        features += '<article class="feature-item"><span class="feature-index">0' + (i + 1) + '</span><div><h3>' + p.features[i].title + '</h3><p>' + p.features[i].text + '</p></div></article>';
+      }
+      for (i = 0; i < p.scenarios.length; i++) {
+        scenarios += '<li>' + iconUse("check", "icon icon-sm") + '<span>' + p.scenarios[i] + '</span></li>';
+      }
+      html = '<div class="detail-hero" style="background-color:' + p.color + '">'
+        + '<div class="detail-hero-main"><div class="detail-title-row"><div class="product-icon">' + iconUse(p.icon, "icon icon-lg") + '</div><div class="detail-title-text"><h1>' + p.name + '</h1><p class="detail-en">' + p.en + ' / ' + p.category + '</p></div></div><p class="detail-tagline">' + p.tagline + '</p><p class="detail-description">' + p.description + '</p></div>'
+        + '<div class="detail-actions"><button class="button button-primary" type="button" data-compare="' + id + '" aria-pressed="' + (selected ? "true" : "false") + '">' + (selected ? "移出对比" : "加入对比") + '</button><a class="button" href="#/products">返回产品中心</a></div></div>'
+        + '<div class="detail-grid"><section class="detail-main" style="border-top-color:' + p.color + '"><h2>核心能力</h2><div class="feature-list">' + features + '</div></section>'
+        + '<aside class="detail-aside" style="border-top-color:' + p.color + '"><h2>适合这些场景</h2><ul class="scenario-list">' + scenarios + '</ul><div class="info-block"><h3>适合谁</h3><p>' + p.fit + '</p></div><div class="info-block"><h3>建议起点</h3><p>' + p.start + '</p></div><div class="info-block"><h3>搭配体验</h3><p>与' + related.name + '搭配，继续探索相关数字场景。</p><p style="margin-top:12px"><a class="text-link" href="#/product/' + relatedId + '">了解' + related.name + iconUse("arrow", "icon icon-sm") + '</a></p></div></aside></div>';
+      document.getElementById("productDetail").innerHTML = html;
+    }
+
+    function syncCompareButtons() {
+      var buttons = document.querySelectorAll("[data-compare]");
+      var i;
+      var selected;
+      for (i = 0; i < buttons.length; i++) {
+        selected = !!compareSelection[buttons[i].getAttribute("data-compare")];
+        buttons[i].setAttribute("aria-pressed", selected ? "true" : "false");
+        setText(buttons[i], selected ? "移出对比" : "加入对比");
+      }
+      setText(document.getElementById("compareBadge"), selectedCount());
+    }
+
+    function bindCompareChecks() {
+      var select = document.getElementById("compareAdd");
+      if (select) {
+        select.onchange = function () {
+          var id = this.value;
+          this.value = "";
+          if (id && !compareSelection[id]) toggleCompare(id);
+        };
+      }
+    }
+
+    function renderCompare() {
+      var selected = [];
+      var selectedHTML = "";
+      var addOptions = "";
+      var picker = "";
+      var container = document.getElementById("compareContent");
+      var i;
+      var j;
+      var p;
+      var id;
+      var rows;
+      var colWidth;
+      var tableWidth;
+      var table;
+      for (i = 0; i < productIds.length; i++) {
+        id = productIds[i];
+        p = products[id];
+        if (compareSelection[id]) {
+          selected.push(id);
+          selectedHTML += '<span class="compare-option selected" style="border-left-color:' + p.color + '">' + p.name + '<button class="compare-remove" type="button" data-remove-compare="' + id + '" aria-label="将' + p.name + '移出对比">移除</button></span>';
+        } else {
+          addOptions += '<option value="' + id + '">' + p.name + ' · ' + p.category + '</option>';
+        }
+      }
+      picker = '<div class="compare-picker" aria-label="选择要对比的产品"><div class="compare-toolbar"><label class="compare-add-label" for="compareAdd">添加对比产品<select class="compare-add-select" id="compareAdd"><option value="">请选择产品（剩余 ' + (productIds.length - selected.length) + ' 款）</option>' + addOptions + '</select></label><span class="compare-hint">已选 ' + selected.length + ' 款 · 建议同时对比 2–6 款</span></div><div class="compare-selected">' + (selectedHTML || '<span class="compare-hint">暂未选择产品</span>') + '</div></div>';
+      if (!selected.length) {
+        container.innerHTML = picker + '<div class="empty-state">' + iconUse("compare", "icon icon-lg") + '<h3>还没有选择产品</h3><p>从上方下拉菜单添加产品，或恢复原来的 5 款默认对比。</p><button class="button button-primary" type="button" data-select-all="true">恢复默认 5 款</button></div>';
+        bindCompareChecks();
+        animateCollection(container, ".compare-picker, .empty-state", 45);
+        return;
+      }
+      colWidth = (82 / selected.length).toFixed(2);
+      tableWidth = Math.max(820, 180 + selected.length * 230);
+      rows = [["产品方向", "category"], ["核心用途", "purpose"], ["关键能力", "capabilities"], ["适合谁", "fit"], ["建议起点", "start"]];
+      table = '<div class="compare-table-wrap"><table class="compare-table" style="min-width:' + tableWidth + 'px"><colgroup><col style="width:18%">';
+      for (i = 0; i < selected.length; i++) table += '<col style="width:' + colWidth + '%">';
+      table += '</colgroup><thead><tr><th scope="col">对比项目</th>';
+      for (i = 0; i < selected.length; i++) table += '<th scope="col" style="border-top:6px solid ' + products[selected[i]].color + '">' + products[selected[i]].name + '</th>';
+      table += '</tr></thead><tbody>';
+      for (i = 0; i < rows.length; i++) {
+        table += '<tr><th scope="row">' + rows[i][0] + '</th>';
+        for (j = 0; j < selected.length; j++) table += '<td>' + products[selected[j]][rows[i][1]] + '</td>';
+        table += '</tr>';
+      }
+      table += '</tbody></table></div>';
+      container.innerHTML = picker + table;
+      bindCompareChecks();
+      animateCollection(container, ".compare-picker, .compare-table-wrap", 45);
+    }
+
+    function toggleCompare(id) {
+      if (!products[id]) return;
+      compareSelection[id] = !compareSelection[id];
+      showToast("已将" + products[id].name + (compareSelection[id] ? "加入对比" : "移出对比"));
+      syncCompareButtons();
+      if (document.querySelector('[data-view="compare"]').style.display !== "none") renderCompare();
+    }
+
+    bindEvent(document, "click", function (event) {
+      event = event || window.event;
+      var target = event.target || event.srcElement;
+      var compareButton = closestWithAttribute(target, "data-compare");
+      var removeCompare = closestWithAttribute(target, "data-remove-compare");
+      var selectAll = closestWithAttribute(target, "data-select-all");
+      var motionTarget = closestMotionTarget(target);
+      var i;
+      createRipple(motionTarget, event);
+      if (compareButton) toggleCompare(compareButton.getAttribute("data-compare"));
+      if (removeCompare) toggleCompare(removeCompare.getAttribute("data-remove-compare"));
+      if (selectAll) {
+        for (i = 0; i < productIds.length; i++) compareSelection[productIds[i]] = !!defaultCompare[productIds[i]];
+        syncCompareButtons();
+        renderCompare();
+      }
+    });
+
+    var filterButtons = document.querySelectorAll("[data-filter]");
+    var filterIndex;
+    var currentFilter = "all";
+    function applyProductFilter() {
+      var input = document.getElementById("productSearch");
+      var query = input.value.replace(/^\s+|\s+$/g, "").toLowerCase();
+      var visible = 0;
+      var cards = document.querySelectorAll("#catalogGrid [data-product-card]");
+      var empty = document.getElementById("filterEmpty");
+      var i;
+      var active;
+      var matchesCategory;
+      var matchesSearch;
+      if (currentFilter === "all" && !query) removeClass(document.getElementById("catalogGrid"), "is-filtered");
+      else addClass(document.getElementById("catalogGrid"), "is-filtered");
+      for (i = 0; i < cards.length; i++) {
+        matchesCategory = currentFilter === "all" || cards[i].getAttribute("data-category") === currentFilter;
+        matchesSearch = !query || (cards[i].textContent || cards[i].innerText).toLowerCase().indexOf(query) > -1;
+        active = matchesCategory && matchesSearch;
+        cards[i].style.display = active ? "flex" : "none";
+        if (active) visible++;
+      }
+      setText(document.getElementById("filterCount"), "显示 " + visible + " 款产品");
+      if (empty) {
+        empty.style.display = visible ? "none" : "block";
+        if (visible) empty.setAttribute("hidden", "hidden"); else empty.removeAttribute("hidden");
+      }
+      animateCollection(document.getElementById("catalogGrid"), ".product-card", 35);
+    }
+    function bindFilter(button) {
+      bindEvent(button, "click", function () {
+        currentFilter = button.getAttribute("data-filter");
+        var active;
+        var i;
+        for (i = 0; i < filterButtons.length; i++) {
+          active = filterButtons[i] === button;
+          if (active) addClass(filterButtons[i], "active"); else removeClass(filterButtons[i], "active");
+          filterButtons[i].setAttribute("aria-pressed", active ? "true" : "false");
+        }
+        applyProductFilter();
+      });
+    }
+    for (filterIndex = 0; filterIndex < filterButtons.length; filterIndex++) bindFilter(filterButtons[filterIndex]);
+    bindEvent(document.getElementById("productSearch"), "input", applyProductFilter);
+
+    function toggleNavigation() {
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width <= 860) {
+        if (hasClass(document.body, "nav-open")) removeClass(document.body, "nav-open"); else addClass(document.body, "nav-open");
+      } else {
+        if (hasClass(document.body, "nav-collapsed")) removeClass(document.body, "nav-collapsed"); else addClass(document.body, "nav-collapsed");
+      }
+    }
+    bindEvent(document.getElementById("navToggle"), "click", toggleNavigation);
+    bindEvent(document.getElementById("mobileNavToggle"), "click", toggleNavigation);
+    bindEvent(document.getElementById("navScrim"), "click", closeMobileNav);
+    bindEvent(document.getElementById("backButton"), "click", function () {
+      if (window.history.length > 1) window.history.back(); else window.location.hash = "#/home";
+    });
+    bindEvent(document, "keydown", function (event) {
+      event = event || window.event;
+      if ((event.ctrlKey || event.metaKey) && event.keyCode === 80) {
+        if (event.preventDefault) event.preventDefault();
+        event.returnValue = false;
+        showToast("此页面已关闭打印功能");
+        return false;
+      }
+      if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) closeMobileNav();
+    });
+
+    function setTheme(theme) {
+      var dark = theme === "dark";
+      var toggle = document.getElementById("themeToggle");
+      var icon = dark ? "#icon-sun" : "#icon-moon";
+      var use = document.getElementById("themeIconUse");
+      if (dark) addClass(document.body, "dark"); else removeClass(document.body, "dark");
+      toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+      toggle.setAttribute("aria-label", dark ? "切换浅色主题" : "切换深色主题");
+      setText(document.getElementById("themeLabel"), dark ? "浅色主题" : "深色主题");
+      use.setAttribute("href", icon);
+      use.setAttribute("xlink:href", icon);
+      try { window.localStorage.setItem("cat-theme", theme); } catch (error) {}
+    }
+    var initialTheme = "light";
+    try {
+      initialTheme = window.localStorage.getItem("cat-theme") || "light";
+      if (!window.localStorage.getItem("cat-theme") && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) initialTheme = "dark";
+    } catch (themeError) {}
+    setTheme(initialTheme);
+    bindEvent(document.getElementById("themeToggle"), "click", function () { setTheme(hasClass(document.body, "dark") ? "light" : "dark"); });
+
+    bindEvent(window, "hashchange", route);
+    if (!window.location.hash) replaceHash("#/home");
+    renderAdditionalProductCards();
+    syncCompareButtons();
+    route();
+  </script>
+</body>
+</html>
